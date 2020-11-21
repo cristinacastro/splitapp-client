@@ -10,10 +10,8 @@ const GroupDetails = (props) => {
     <div>   
      <h1>{group.name}</h1>
      <h1>{group.members.length} members</h1>
-     <Link > Add cost
-     
-     </Link>
-     
+     <Link to={{pathname:`/groups/addCost/${group._id}`, state:{groupsList:group}}}> Add cost</Link> 
+
     </div> 
   );
 };
