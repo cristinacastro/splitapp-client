@@ -17,6 +17,7 @@ import Groups from "./pages/Groups";
 import GroupDetails from "./pages/GroupDetails";
 import Profile from "./pages/Profile";
 import AddCost from "./pages/AddCost";
+import AddGroup from "./pages/AddGroup";
 
 
 
@@ -35,6 +36,7 @@ class App extends Component {
             <PrivateRoute exact path="/groups" component={Groups}/>
             <PrivateRoute exact path="/groups/addCost/:id" component={AddCost}/>
             <PrivateRoute exact path="/groups/:id" component={GroupDetails}/>
+            <PrivateRoute exact path="/add-group" component={AddGroup}/>
             <AnonRoute  exact path='/signup' component={Signup} />
             <AnonRoute  exact path='/login' component={Login} />
 

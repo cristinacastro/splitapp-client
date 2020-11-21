@@ -36,13 +36,15 @@ class Groups extends Component {
         return (
             <div>
             <h1>Your groups</h1>
+            <Link to='/add-group'>
+            <li>Create Group</li></Link>
                 <div>
                 {this.state.listOfGroups.map(eachGroup => {
                     console.log(eachGroup, "cada grup")
-          return (
-            <EachGroup key={eachGroup._id} groups={eachGroup}/>
-          )
-        })}
+                    return (
+                      <EachGroup key={eachGroup._id} groups={eachGroup}/>
+                    )
+                  })}
                 </div>
             </div>
         )
