@@ -96,7 +96,7 @@ export default class AddGroup extends Component {
                     return (
                         <div>{member.username}
                             <button onClick={this.memberPush} id="show-all">
-                                Show all beers
+                                Add member
                             </button>
 
                         </div>
@@ -111,7 +111,7 @@ export default class AddGroup extends Component {
 
                 
                     <div>
-                        <input type="submit" value="Create group" />
+                        <input type="submit" value="Save group" />
                     </div>
                 </form>
 

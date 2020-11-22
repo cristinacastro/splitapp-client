@@ -1,32 +1,94 @@
-import React from "react";
+import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import EachExpense from "../components/EachExpense";
+import axios from 'axios';
 
 
-const GroupDetails = (props) => {
+class GroupDetails extends Component {
 
-  const group = props.location.state.groupsList
-  console.log(group, 'hola')
+  state = {
+    listOfExpenses: [],
+    group: this.props.location.state.groupsList
+  }
 
+  // const group = props.location.state.groupsList
+  // console.log(group, 'hola')
+  // console.log(group, 'holiwis')
+
+  
+  
+  getAllExpenses = async() => {
+    // console.log(props.location.state.groupsList, 'holamaderemia')
+
+    try {
+      const res = await axios({
+        method: 'GET',
+        url: `http://localhost:4000/expenses/add/${this.state.group._id}`,
+        withCredentials: true,
+      })
+      console.log(res, 'gjirwgj')
+
+      this.setState({
+        listOfExpenses: res.data
+      });
+      console.log(res, 'lisFoExpenses')
+
+
+    } catch (error) {
+      console.log(error, 'GET expenses error')
+    }
+
+  }
+render(){
   return (
     <div>
-      <h1>{group.name}</h1>
-      <h1>{group.members.length} members</h1>
-      <Link to={{ pathname: `/groups/addCost/${group._id}`, state: { groupsList: group } }}> Add cost</Link>
+      <h1>{this.state.group.name}</h1>
+      <h1>{this.state.group.members.length} members</h1>
+      <Link to={{ pathname: `/groups/addCost/${this.state.group._id}`, state: { groupsList: this.state.group } }}> Add cost</Link>
       <div>
-        
-        {group.costs.map(eachCost => {
-          console.log(eachCost, "cada grup")
+
+        <h1>Costs list</h1>
+        {this.state.group.costs.map(eachCost => {
+          console.log(eachCost, "cada cost")
           return (
-            <h1>Hola</h1>
-            // <EachExpense key={eachCost._id} groups={eachCost} />
+            <div>
+              <hr></hr>
+
+              <h3>{eachCost.concept}</h3>
+              <h3>{eachCost.costImport}</h3>
+              <h3>{eachCost.date}</h3>
+
+              {this.state.group.members.map(eachMember => {
+                if (eachMember._id === eachCost.buyer) {
+                  return (
+                    <h1>Buyer:{eachMember.username}</h1>
+                  )
+                }
+              })}
+              <hr></hr>
+            </div>
           )
         })}
+
+
+        <h1>All Expenses</h1>
+        <div>
+          <button onClick={this.getAllExpenses}>Calcular</button>
+        </div>
+
+
+        {this.state.listOfExpenses.map(eachExpense => {
+          return (
+            <EachExpense key={eachExpense._id} theExpense={eachExpense} theGroup={this.state.group} />
+          )
+        })}
+
       </div>
 
     </div>
   );
+}
 };
 
 export default withAuth(GroupDetails);
