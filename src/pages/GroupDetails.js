@@ -73,6 +73,7 @@ class GroupDetails extends Component {
   render() {
     return (
       <div>
+        <div>{this.state.group.image}</div>
         <h1>{this.state.group.name}</h1>
         <h1>{this.state.group.members.length} members</h1>
         <Link
