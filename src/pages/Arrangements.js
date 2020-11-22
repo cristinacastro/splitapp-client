@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import auth from "../lib/auth-service";
+import GroupDetails from "./GroupDetails";
 
 
 class Arrangements extends Component {
@@ -30,24 +31,57 @@ class Arrangements extends Component {
   componentDidMount() {
         this.getAllExpenses();
     }
-
     render() {
+        //console.log(this.props.user._id, "dsf")
+        
+        
         return (
             <div>
-            <h1>jfio</h1>
-                <div>
-                    {this.state.listOfExpenses.map((eachExpense) => {
-                    return (
-                        // usamos el '_id' de cada project como 'key'
-                        <div key={eachExpense._id}>
-                            <h3>{eachExpense.expenseImport}</h3>
-                        {/* <Link to={`/projects/${eachProject._id}`}>
-                            <h3>{eachProject.title}</h3>
-                        </Link> */}
-                        </div>
-                    );
+            <h1>Your debts and incomes</h1>
+
+                 <div>
+                 <h3>Your debts</h3>
+                    {this.state.listOfExpenses.map(eachExpense => {
+                    if(eachExpense.payer._id.toString() == this.props.user._id.toString()){
+                        console.log("cfsfvvv")
+                        return (
+                            <div>
+                            {eachExpense.payer.usermame}
+                            <p>Hola</p>
+                            </div>
+                        )
+                    }
+
+                  
+            
+                    
                     })}
-                </div>
+                </div> 
+            
+                <div>
+                 <h3>Your dfs</h3>
+                    {this.state.listOfExpenses.map(eachExpense => {
+                        console.log(eachExpense.beneficiary._id.usermame)
+                    if(eachExpense.beneficiary._id.toString() == this.props.user._id.toString()){
+                        return (
+                            <div>
+                            
+                            {eachExpense.payer.username}<p>owes</p>
+                            {eachExpense.beneficiary.username}<p></p>
+                            {eachExpense.expenseImport}<p>euros</p>
+                            <Link to = {{pathname:`/groups/${eachExpense.group._id}`, state: {groupsList: eachExpense.group, costs: eachExpense.group.costs}}} > {eachExpense.group.name} </Link>
+                            <br></br>
+                            
+                            </div>
+                        )
+                    }
+
+                  
+            
+                    
+                    })}
+                </div> 
+
             </div>
         )
     }
