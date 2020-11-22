@@ -7,7 +7,7 @@ class Service {
        withCredentials: true 
     });
   }
-  handleUpload = async (image) => {
+  handleFileUpload = async (image) => {
     console.log("file in service: ", image);
 
     try {
@@ -27,7 +27,10 @@ class Service {
     }
   };
 
-
-
-
 }
+
+
+
+const axiosRequestFunctions = new Service();
+
+export default axiosRequestFunctions;

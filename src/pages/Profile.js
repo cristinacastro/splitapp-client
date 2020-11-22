@@ -3,6 +3,8 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import service from "../api/service";
+
 class Profile extends Component {
 
   state = {
@@ -41,8 +43,8 @@ class Profile extends Component {
     }
 }
 
-  handleEditClick = async () => {
-      preventDefault();
+  handleEditClick = async (e) => {
+    e.preventDefault();
     try {
       const res = await axios(
         {
@@ -50,8 +52,9 @@ class Profile extends Component {
           url:
             "http://localhost:4000/profile/edit/" + this.state.userProfile._id,
           withCredentials: true,
-        },
-        { email: this.state.userProfile.email }
+          data: { email: this.state.userProfile.email, image: this.state.image }
+        }
+        
       );
       //  this.setState({ editModeEnabled: !this.state.editModeEnabled });
     } catch (error) {
@@ -64,13 +67,14 @@ class Profile extends Component {
     return (
       <div>
         <h1>Your profile</h1>
-        <form>
+        <form onSubmit={this.handleEditClick}>
           <p>{this.state.userProfile.username}</p>
           <label for="image"> Image: </label>
           <input
             type="file"
             name="image"
-            value={this.state.userProfile.image}
+            value=''
+            onChange={(e) => this.handleFileUpload(e)}
           />
           <input type="email" value={this.state.userProfile.email} />
           <a
@@ -82,6 +86,9 @@ class Profile extends Component {
           </a>
           <p>Bizum:{this.state.userProfile.phone}</p>
           <button>Edit bizum</button>
+          <div>
+            <input type="submit" value="Save group" />
+          </div>
         </form>
       </div>
     );
