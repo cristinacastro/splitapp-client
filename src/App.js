@@ -34,9 +34,9 @@ class App extends Component {
             <PrivateRoute exact path="/arrangements" component={Arrangements}/>
             <PrivateRoute exact path="/profile" component={Profile}/>
             <PrivateRoute exact path="/groups" component={Groups}/>
+            <PrivateRoute exact path="/groups/edit/:id" component={AddGroup}/>
             <PrivateRoute exact path="/groups/addCost/:id" component={AddCost}/>
             <PrivateRoute exact path="/groups/:id" component={GroupDetails}/>
-            <PrivateRoute exact path="/add-group" component={AddGroup}/>
             <AnonRoute  exact path='/signup' component={Signup} />
             <AnonRoute  exact path='/login' component={Login} />
 

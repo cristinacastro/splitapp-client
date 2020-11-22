@@ -12,11 +12,12 @@ class Search extends Component {
 
   handleChange = e => {
     this.setState({ query: e.target.value });
+    
+    e.preventDefault();
+    this.props.filterMembers(this.state.query);
   }
 
   handleSubmit = e => { 
-    e.preventDefault();
-    this.props.filterMembers(this.state.query);
   }
 
   render() {

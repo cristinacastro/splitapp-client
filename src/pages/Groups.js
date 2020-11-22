@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";	
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import auth from "../lib/auth-service";
 import EachGroup from "../components/EachGroup";
@@ -28,6 +28,27 @@ class Groups extends Component {
     }
   }
 
+  createEmptyGroup = async(e) => {
+    e.preventDefault();
+    console.log('hola')
+    try{
+        const res = await axios({
+            method: 'POST',
+            url: `http://localhost:4000/groups/add`, 
+            withCredentials: true,
+            data: {}
+        })
+        window.location = `/groups/edit/${res.data._id}`
+
+    this.setState({
+        groupId: res.data._id,
+    })
+        
+    } catch (error) {
+        console.log(error, 'POST expenses error')
+    }
+  }
+
   componentDidMount() {
         this.getAllGroups();
     }
@@ -36,8 +57,7 @@ class Groups extends Component {
         return (
             <div>
             <h1>Your groups</h1>
-            <Link to='/add-group'>
-            <li>Create Group</li></Link>
+            <button onClick={this.createEmptyGroup}>Create Group</button>
                 <div>
                 {this.state.listOfGroups.map(eachGroup => {
                     console.log(eachGroup, "cada grup")
