@@ -18,6 +18,7 @@ class Service {
     }
   };
 
+  //profile
   handleEditClick = async (theProfile) => {
     try {
       const res = await this.service.put("/profile/edit/", theProfile);
@@ -26,6 +27,16 @@ class Service {
         console.log(error)
     }
   };
+
+  //groups
+  handleSubmit = async (groupImage) => {
+    try {
+        const res = await this.service.post("http://localhost:4000/groups/edit", groupImage)
+        return res.data;
+      } catch(error){
+          console.log(error)
+      }
+    };
 
 }
 
