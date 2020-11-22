@@ -54,13 +54,19 @@ class GroupDetails extends Component {
       newArr: this.state.newArr,
     });
     console.log(this.state.newArr, "imports");
-
-    {
+    if(this.state.newArr.length == 0){
+      this.state.sum = 0
+    }
+    else if(this.state.newArr.length == 1){
+      this.state.sum = this.state.newArr[0]
+    }
+    else{
       this.state.newArr.reduce((acc, curr) => {
         this.state.sum = acc+curr
         return this.state.sum;
       });
     }
+    
   };
 
 
