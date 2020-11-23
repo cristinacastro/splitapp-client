@@ -9,15 +9,16 @@ const EachGroup = ({ groups }) => {
     
       <Link to={{pathname:`/groups/${groups._id}`, state: {groupsList: groups}}}>
         <div>
-        <h4>{groups.name}</h4>
+        <h3>{groups.name}</h3>
         <img src={groups.image} alt="group pic" width="100" />
         {groups.members.map((eachMember) => {
           return (
               <ul>
-           <li key={eachMember._id} >{eachMember.username}</li>;
+           <li key={eachMember._id} >{eachMember.username}</li>
           </ul>
           )
         })}
+        <br></br>
         </div>
       </Link>
     </div>

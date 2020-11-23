@@ -3,36 +3,29 @@ import { withAuth } from "../lib/AuthProvider";
 
 
 class Search extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      query: ""
-    }
+  state = {
+    search: ""
   }
 
   handleChange = e => {
-    this.setState({ query: e.target.value });
-    
-    e.preventDefault();
-    this.props.filterMembers(this.state.query);
-  }
-
-  handleSubmit = e => { 
+    const { name, value } = e.target;
+      this.setState({[name]: value})
+      this.props.filterMembers(value);
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id="search-bar">
+      <div>
         <input 
           type="text" 
-          name="query" 
-          placeholder="Search for a group member"
-          value={this.state.query} 
+          className="input search-bar" 
+          name="search" 
+          placeholder="Search" 
+          value={this.state.search} 
           onChange={this.handleChange} 
         />
-      </form>
+      </div>
     )
   }
 }
-
 export default withAuth(Search);

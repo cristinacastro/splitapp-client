@@ -59,7 +59,7 @@ class Arrangements extends Component {
                 </div> 
             
                 <div>
-                 <h3>Your dfs</h3>
+                 <h3>Your incomes</h3>
                     {this.state.listOfExpenses.map(eachExpense => {
                         console.log(eachExpense.beneficiary._id.usermame)
                     if(eachExpense.beneficiary._id.toString() == this.props.user._id.toString()){

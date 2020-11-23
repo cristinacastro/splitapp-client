@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import EachExpense from "../components/EachExpense";
 import axios from "axios";
+import { isElementOfType } from "react-dom/test-utils";
 
 class GroupDetails extends Component {
   state = {
@@ -11,7 +12,8 @@ class GroupDetails extends Component {
     allImports: [],
     newArr: [],
     total: 0,
-    sum: 0
+    sum: 0,
+    checked: true
   };
 
  
@@ -19,13 +21,28 @@ class GroupDetails extends Component {
     this.getTotal();
   } 
 
+getExpenses = async () => {
+ 
+  try {
+    const res = await axios({
+      method: "GET",
+      url: `http://localhost:4000/expenses/all/${this.state.group._id}`,
+      withCredentials: true,
+    });
+    this.setState({
+      listOfExpenses: res.data,
+    });
+    console.log(res, "lisFoExpenses");
+  } catch (error) {
+    console.log(error, "GET expenses error");
+  }
+};
 
   // const group = props.location.state.groupsList
   // console.log(group, 'hola')
   // console.log(group, 'holiwis')
 
   getAllExpenses = async () => {
-    // console.log(props.location.state.groupsList, 'holamaderemia')
 
     try {
       const res = await axios({
@@ -70,10 +87,23 @@ class GroupDetails extends Component {
   };
 
 
+  deleteGroup = async () => {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `http://localhost:4000/groups/delete/${this.state.group._id}`,
+        withCredentials: true,
+      });
+    } catch (error) {
+      console.log(error, "GET expenses error");
+    }
+  }
+
+
   render() {
     return (
       <div>
-        <div>{this.state.group.image}</div>
+        <img src={this.state.group.image}/>
         <h1>{this.state.group.name}</h1>
         <h1>{this.state.group.members.length} members</h1>
         <Link
@@ -82,9 +112,10 @@ class GroupDetails extends Component {
             state: { groupsList: this.state.group },
           }}
         >
-          {" "}
+          
           Add cost
         </Link>
+        <button onClick= {this.deleteGroup}>Delete group</button>
         <div>
           <h1>Costs list</h1>
           {this.state.group.costs.map((eachCost) => {
@@ -120,11 +151,15 @@ class GroupDetails extends Component {
 
           {this.state.listOfExpenses.map((eachExpense) => {
             return (
+              <div>
               <EachExpense
                 key={eachExpense._id}
                 theExpense={eachExpense}
                 theGroup={this.state.group}
+                refreshFunction={this.getExpenses}
               />
+              
+              </div>
             );
           })}
         </div>
