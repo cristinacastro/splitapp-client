@@ -4,12 +4,57 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 
-const EachExpense = ({theExpense, theGroup}) => {
+class EachExpense extends Component {
+
+    state = {
+        checked: false
+      };
+
+      
+    changeBoolean = async () => {
+    
+        try {
+          const res = await axios({
+            method: "PATCH",
+            url: `http://localhost:4000/expenses/edit/${this.props.theExpense._id}`,
+            withCredentials: true,
+            data: {payed: this.state.checked}
+          });
+    
+        } catch (error) {
+          console.log(error, "GET expenses error");
+        }
+      }
+
+
+/*   deleteExpense = async () => {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `http://localhost:4000/groups/delete/${this.state.group._id}`,
+        withCredentials: true,
+      });
+    } catch (error) {
+      console.log(error, "GET expenses error");
+    }
+  }
+ */
+    
+      async handleCheckBox(e) {
+        await this.changeBoolean()
+
+        this.setState({
+          checked: !this.state.checked
+        })
+      }
+    
+    render() {
+        console.log(this.props.theExpense, "hhh")
         return (
             <div>
-                    <div>
-                    {theGroup.members.map(eachMember =>{
-                        if(eachMember._id == theExpense.payer){
+                 <div>
+                    {this.props.theGroup.members.map(eachMember =>{
+                        if(eachMember._id == this.props.theExpense.payer){
                             return (
                                 <p>{eachMember.username}</p>
                                 )
@@ -18,21 +63,22 @@ const EachExpense = ({theExpense, theGroup}) => {
                     </div>
                         <p> owes </p>
                         <div>
-                    {theGroup.members.map(eachMember =>{
-                        if(eachMember._id == theExpense.beneficiary){
+                    {this.props.theGroup.members.map(eachMember =>{
+                        if(eachMember._id == this.props.theExpense.beneficiary){
                             return (
                                 <p>{eachMember.username}</p>
                                 )
                             }
                         })}
                     </div>
-                        <p>{theExpense.expenseImport}</p>
+                        <p>{this.props.theExpense.expenseImport}</p>
+                        <input type="checkbox" onChange= {(e)=> this.handleCheckBox(e)} checked={this.state.checked}  />
                   
-                  
-
             </div>
         )
     }
+}
+
 
 
 

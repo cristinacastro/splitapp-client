@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 import EachExpense from "../components/EachExpense";
 import axios from "axios";
+import { isElementOfType } from "react-dom/test-utils";
 
 class GroupDetails extends Component {
   state = {
@@ -11,7 +12,8 @@ class GroupDetails extends Component {
     allImports: [],
     newArr: [],
     total: 0,
-    sum: 0
+    sum: 0,
+    checked: true
   };
 
  
@@ -82,6 +84,7 @@ class GroupDetails extends Component {
     }
   }
 
+
   render() {
     return (
       <div>
@@ -133,11 +136,14 @@ class GroupDetails extends Component {
 
           {this.state.listOfExpenses.map((eachExpense) => {
             return (
+              <div>
               <EachExpense
                 key={eachExpense._id}
                 theExpense={eachExpense}
                 theGroup={this.state.group}
               />
+              
+              </div>
             );
           })}
         </div>
