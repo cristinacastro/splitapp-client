@@ -10,7 +10,7 @@ class EachExpense extends Component {
         checked: false
       };
 
-      
+       
     changeBoolean = async () => {
     
         try {
@@ -27,18 +27,20 @@ class EachExpense extends Component {
       }
 
 
-/*   deleteExpense = async () => {
+   deleteExpense = async () => {
     try {
       const res = await axios({
         method: "DELETE",
-        url: `http://localhost:4000/groups/delete/${this.state.group._id}`,
+        url: `http://localhost:4000/expenses/delete/${this.props.theExpense._id}`,
         withCredentials: true,
       });
+      this.props.refreshFunction()
     } catch (error) {
       console.log(error, "GET expenses error");
     }
   }
- */
+ 
+
     
       async handleCheckBox(e) {
         await this.changeBoolean()
@@ -73,6 +75,10 @@ class EachExpense extends Component {
                     </div>
                         <p>{this.props.theExpense.expenseImport}</p>
                         <input type="checkbox" onChange= {(e)=> this.handleCheckBox(e)} checked={this.state.checked}  />
+
+                        <button onClick={this.deleteExpense}>Delete expense</button>
+
+                
                   
             </div>
         )

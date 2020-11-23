@@ -21,13 +21,28 @@ class GroupDetails extends Component {
     this.getTotal();
   } 
 
+getExpenses = async () => {
+ 
+  try {
+    const res = await axios({
+      method: "GET",
+      url: `http://localhost:4000/expenses/all/${this.state.group._id}`,
+      withCredentials: true,
+    });
+    this.setState({
+      listOfExpenses: res.data,
+    });
+    console.log(res, "lisFoExpenses");
+  } catch (error) {
+    console.log(error, "GET expenses error");
+  }
+};
 
   // const group = props.location.state.groupsList
   // console.log(group, 'hola')
   // console.log(group, 'holiwis')
 
   getAllExpenses = async () => {
-    // console.log(props.location.state.groupsList, 'holamaderemia')
 
     try {
       const res = await axios({
@@ -141,6 +156,7 @@ class GroupDetails extends Component {
                 key={eachExpense._id}
                 theExpense={eachExpense}
                 theGroup={this.state.group}
+                refreshFunction={this.getExpenses}
               />
               
               </div>
