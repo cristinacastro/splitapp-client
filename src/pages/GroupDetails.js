@@ -70,10 +70,22 @@ class GroupDetails extends Component {
   };
 
 
+  deleteGroup = async () => {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `http://localhost:4000/groups/delete/${this.state.group._id}`,
+        withCredentials: true,
+      });
+    } catch (error) {
+      console.log(error, "GET expenses error");
+    }
+  }
+
   render() {
     return (
       <div>
-        <div>{this.state.group.image}</div>
+        <img src={this.state.group.image}/>
         <h1>{this.state.group.name}</h1>
         <h1>{this.state.group.members.length} members</h1>
         <Link
@@ -82,9 +94,10 @@ class GroupDetails extends Component {
             state: { groupsList: this.state.group },
           }}
         >
-          {" "}
+          
           Add cost
         </Link>
+        <button onClick= {this.deleteGroup}>Delete group</button>
         <div>
           <h1>Costs list</h1>
           {this.state.group.costs.map((eachCost) => {

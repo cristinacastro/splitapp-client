@@ -36,14 +36,10 @@ class Groups extends Component {
             method: 'POST',
             url: `http://localhost:4000/groups/add`, 
             withCredentials: true,
-            data: {}
+           
         })
         window.location = `/groups/edit/${res.data._id}`
 
-    this.setState({
-        groupId: res.data._id,
-    })
-        
     } catch (error) {
         console.log(error, 'POST expenses error')
     }
