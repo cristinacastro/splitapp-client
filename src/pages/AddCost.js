@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import service from "../api/service";
 
 export default class AddCost extends Component {
     
@@ -31,6 +32,18 @@ export default class AddCost extends Component {
         }
     }
     
+    handleFileUpload = async (e) => {
+        console.log("the file to be uploadesd is: ", e.target.files[0])
+        const uploadData = new FormData();
+        uploadData.append("image", e.target.files[0])
+        try{
+            const res = await service.handleFileUpload(uploadData)
+            console.log("response is", res)
+            this.setState({image: res.secure_url})
+        }catch (error){
+          console.log("Error while uploading the file: ", error)
+        }
+    }
     
     handleChange = e => {
         let { name, value } = e.target;
@@ -53,6 +66,15 @@ export default class AddCost extends Component {
                     <div>
                         <input type="submit" value="Add new beer" />
                     </div>
+                    <label for="image"> Image: </label>
+                    <input
+                        type="file"
+                        name="image"
+                        value=''
+                        onChange={(e) => this.handleFileUpload(e)}
+                    />
+
+
                 </form>
 
             </div>
