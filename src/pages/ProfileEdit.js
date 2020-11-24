@@ -31,7 +31,7 @@ class Profile extends Component {
     try {
       const res = await axios({
         method: "PATCH",
-        url: `http://localhost:4000/profile/edit/${id}`,
+        url: process.env.REACT_APP_API_URL + `/profile/edit/${id}`,
         withCredentials: true,
         data: {id,username,image,phone}
       })

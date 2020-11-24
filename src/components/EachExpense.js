@@ -16,7 +16,7 @@ class EachExpense extends Component {
         try {
           const res = await axios({
             method: "PATCH",
-            url: `http://localhost:4000/expenses/edit/${this.props.theExpense._id}`,
+            url: process.env.REACT_APP_API_URL + `/expenses/edit/${this.props.theExpense._id}`,
             withCredentials: true,
             data: {payed: this.state.checked}
           });
@@ -31,7 +31,7 @@ class EachExpense extends Component {
     try {
       const res = await axios({
         method: "DELETE",
-        url: `http://localhost:4000/expenses/delete/${this.props.theExpense._id}`,
+        url: process.env.REACT_APP_API_URL + `/expenses/delete/${this.props.theExpense._id}`,
         withCredentials: true,
       });
       this.props.refreshFunction()

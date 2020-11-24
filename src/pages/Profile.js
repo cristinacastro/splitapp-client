@@ -15,7 +15,7 @@ class Profile extends Component {
     try {
       const res = await axios({
         method: "GET",
-        url: "http://localhost:4000/profile",
+        url: process.env.REACT_APP_API_URL + "/profile",
         withCredentials: true,
       });
       this.setState({

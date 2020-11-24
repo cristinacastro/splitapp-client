@@ -23,7 +23,7 @@ export default class AddCost extends Component {
         try {
             const res = await axios({
                 method: 'POST',
-                url: `http://localhost:4000/costs/add/${this.props.location.state.groupsList._id}`,
+                url: process.env.REACT_APP_API_URL +`/costs/add/${this.props.location.state.groupsList._id}`,
                 withCredentials: true,
                 data: { concept: concept, costImport: costImport }
             })
@@ -50,10 +50,10 @@ export default class AddCost extends Component {
             this.setState({ image: res.secure_url }) //Fins aqui es igual que pujar la imatge al perfil
             const receipt_raw = await axios({
                 method: 'POST',
-                url: 'https://projectemar.cognitiveservices.azure.com/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze',
+                url: "https://projectemar.cognitiveservices.azure.com/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze",
                 headers:
                 {
-                    'ocp-apim-subscription-key': '283baf18bf244fb599712265b21633c6',
+                    'ocp-apim-subscription-key': process.env.REACT_APP_RECEIPT_API_KEY,
                     'content-type': 'application/json'
                 },
                 data: { source: res.secure_url },

@@ -20,7 +20,7 @@ export default class AddGroup extends Component {
     try {
       const res = await axios({
         method: "GET",
-        url: "http://localhost:4000/profile/allusers",
+        url: process.env.REACT_APP_API_URL + "/profile/allusers",
         withCredentials: true,
       });
 
@@ -77,7 +77,7 @@ export default class AddGroup extends Component {
     try {
       const res = await axios({
         method: "PATCH",
-        url: `http://localhost:4000/groups/edit/${params.id}`,
+        url: process.env.REACT_APP_API_URL + `/groups/edit/${params.id}`,
         withCredentials: true,
         data: { name: name, members: theMembers, image: image },
       });

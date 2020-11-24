@@ -26,7 +26,7 @@ getExpenses = async () => {
   try {
     const res = await axios({
       method: "GET",
-      url: `http://localhost:4000/expenses/all/${this.state.group._id}`,
+      url: process.env.REACT_APP_API_URL + `/expenses/all/${this.state.group._id}`,
       withCredentials: true,
     });
     this.setState({
@@ -38,16 +38,13 @@ getExpenses = async () => {
   }
 };
 
-  // const group = props.location.state.groupsList
-  // console.log(group, 'hola')
-  // console.log(group, 'holiwis')
 
   getAllExpenses = async () => {
 
     try {
       const res = await axios({
         method: "GET",
-        url: `http://localhost:4000/expenses/add/${this.state.group._id}`,
+        url: process.env.REACT_APP_API_URL + `/expenses/add/${this.state.group._id}`,
         withCredentials: true,
       });
       console.log(res, "gjirwgj");
@@ -91,7 +88,7 @@ getExpenses = async () => {
     try {
       const res = await axios({
         method: "DELETE",
-        url: `http://localhost:4000/groups/delete/${this.state.group._id}`,
+        url: process.env.REACT_APP_API_URL + `/groups/delete/${this.state.group._id}`,
         withCredentials: true,
       });
     } catch (error) {

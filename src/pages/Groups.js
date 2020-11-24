@@ -16,7 +16,7 @@ class Groups extends Component {
     try{
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4000/groups', 
+            url: process.env.REACT_APP_API_URL + '/groups', 
             withCredentials: true
         })
 
@@ -34,7 +34,7 @@ class Groups extends Component {
     try{
         const res = await axios({
             method: 'POST',
-            url: `http://localhost:4000/groups/add`, 
+            url: process.env.REACT_APP_API_URL + `/groups/add`, 
             withCredentials: true,
            
         })

@@ -16,7 +16,7 @@ class Arrangements extends Component {
     try{
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4000/arrangements', 
+            url: process.env.REACT_APP_API_URL +'/arrangements', 
             withCredentials: true
         })
 
