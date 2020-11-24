@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import auth from "../lib/auth-service";
 import GroupDetails from "./GroupDetails";
+import Navbar from "../components/Navbar"
 
 
 class Arrangements extends Component {
@@ -81,7 +82,7 @@ class Arrangements extends Component {
                     
                     })}
                 </div> 
-
+                <Navbar/> 
             </div>
         )
     }

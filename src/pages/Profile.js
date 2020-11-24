@@ -41,6 +41,7 @@ class Profile extends Component {
          <p>Bizum:{this.state.userProfile.phone}</p>
          <img src = {this.state.userProfile.image}/>
          <Link to= {`/profile-edit/${this.state.userProfile._id}`} profiles={this.state.userProfile}>Edit profile</Link>
+         <Navbar/> 
       </div>
     );
   }

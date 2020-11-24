@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import auth from "../lib/auth-service";
 import EachGroup from "../components/EachGroup";
+import Navbar from "../components/Navbar"
 
 
 class Groups extends Component {
@@ -62,6 +63,7 @@ class Groups extends Component {
                     )
                   })}
                 </div>
+                <Navbar/> 
             </div>
         )
     }
