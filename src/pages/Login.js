@@ -23,7 +23,7 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div className="h50">
+      <div className="h100">
         <div className="center-div form-container">
         <h2>Login</h2>
 

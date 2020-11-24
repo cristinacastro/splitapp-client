@@ -28,8 +28,8 @@ class App extends Component {
     return (
       <AuthProvider> 
         <div className='container'>
-          <Home />
 
+          <Home />
           <Switch>
             <PrivateRoute exact path='/' component={Dashboard} />
             <PrivateRoute exact path="/arrangements" component={Arrangements}/>

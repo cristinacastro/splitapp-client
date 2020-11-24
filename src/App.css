@@ -326,6 +326,13 @@ p {
 .h100{
   height: 100vh;
 }
+.page{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding-top: 2em;
+}
 .center-div{
   display: flex;
   justify-content: center;
@@ -333,30 +340,4 @@ p {
   padding: 0.6em 1em;
 }
 
-/* Home */
-.home { 
-  flex-direction: column;
-  color: black;
-  height:35vh;
-  justify-content: flex-end;
-}
-.home-buttons{
-
-}
-
-nav.navbar .navbar-user{
-  margin-left: 1em;
-  
-}
-
-button.navbar-button {
-  padding: 1em 2em;
-  width: 100%;
-  border-radius: 3em;
-  margin: 0 1em;
-}
-
-#home-btn {
-  text-decoration: none;
-}
 
