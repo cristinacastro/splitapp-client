@@ -1,0 +1,15 @@
+.navbar{
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar ul{
+    display: flex;
+    justify-items: space-around;
+}
+.navbar li{
+   margin: 0em 1em;
+}

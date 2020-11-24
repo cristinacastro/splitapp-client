@@ -23,7 +23,7 @@ class Signup extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <div  className="h50">
+      <div  className="h100">
         <div className="center-div form-container">
           <h2>Sign Up</h2>
 

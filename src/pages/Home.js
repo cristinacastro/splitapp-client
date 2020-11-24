@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import { withAuth } from "../lib/AuthProvider";	
+import "./Home.css";
 
-class Navbar extends Component {
+
+class Home extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
       <nav className='home center-div'>
-        <Link to={"/"} id='home-btn'>
-          <h4>Home</h4>
-        </Link>
         {isLoggedin ? (
-          <>
-            <p className='navbar-user'>username:{user.username}</p>
-            <button className='navbar-button' onClick={logout}>Logout</button>
-          </>
+          <div className="center-div home-loggedin">
+            <>
+              <p className='navbar-user'>username:{user.username}</p>
+              <button className='navbar-button' onClick={logout}>Logout</button>
+            </>
+          </div>
         ) : (
           <div class="center-div home-buttons">
           <>
@@ -34,4 +34,4 @@ class Navbar extends Component {
   }
 }
 
-export default withAuth(Navbar);
+export default withAuth(Home);
