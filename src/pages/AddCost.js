@@ -8,6 +8,7 @@ export default class AddCost extends Component {
   state = {
     concept: "",
     costImport: 0,
+    date: "",
     receipt: {},
     ticket: {
       merchant: "",
@@ -16,7 +17,7 @@ export default class AddCost extends Component {
   };
 
   handleSubmit = async (e) => {
-    const { concept, costImport } = this.state;
+    const { concept, costImport, date } = this.state;
     e.preventDefault();
     console.log("hola");
     try {
@@ -26,12 +27,13 @@ export default class AddCost extends Component {
           process.env.REACT_APP_API_URL +
           `/costs/add/${this.props.location.state.groupsList._id}`,
         withCredentials: true,
-        data: { concept: concept, costImport: costImport },
+        data: { concept: concept, costImport: costImport, date: date },
       });
 
       this.setState({
         concept: "",
         costImport: 0,
+        date: ""
       });
     } catch (error) {
       console.log(error, "POST expenses error");
@@ -134,6 +136,16 @@ export default class AddCost extends Component {
               onChange={this.handleChange}
             />
           </div>
+          <div>
+            <label>Date:</label>
+            <input
+              type="date"
+              name="date"
+              value={this.state.date}
+              onChange={this.handleChange}
+            />
+          </div>
+
           <div>
             <input type="submit" value="Add cost" onClick={this.props.history.goBack}/>
           </div>

@@ -125,7 +125,7 @@ getExpenses = async () => {
 
                 <h3>{eachCost.concept}</h3>
                 <h3>{eachCost.costImport}</h3>
-                <h3>{eachCost.date}</h3>
+                <p>{eachCost.date}</p>
 
                 {this.state.group.members.map((eachMember) => {
                   if (eachMember._id === eachCost.buyer) {
