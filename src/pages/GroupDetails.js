@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import EachExpense from "../components/EachExpense";
 import axios from "axios";
 import { isElementOfType } from "react-dom/test-utils";
+import Navbar from "../components/Navbar"
+
 
 class GroupDetails extends Component {
   state = {
@@ -160,6 +162,8 @@ getExpenses = async () => {
             );
           })}
         </div>
+        <button onClick={this.props.history.goBack}>Go Back</button>
+        <Navbar/> 
       </div>
     );
   }

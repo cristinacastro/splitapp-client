@@ -88,9 +88,12 @@ class Profile extends Component {
             onChange={this.handleChange}
           />
           <div>
-            <input type="submit" value="Save profile" />
+            <input type="submit" value="Save profile" onClick={this.props.history.goBack}/>
           </div>
         </form>
+
+        <button onClick={this.props.history.goBack}>Go Back</button>
+        <Navbar/> 
       </div>
     );
   }

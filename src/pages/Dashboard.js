@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";	
 import { Link } from "react-router-dom";
 import axios from 'axios';
-
-
-
 import Navbar from "../components/Navbar"
 
 class Dashboard extends Component {

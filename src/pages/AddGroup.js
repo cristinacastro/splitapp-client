@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Search from "../components/Search";
 import service from "../api/service";
+import Navbar from "../components/Navbar"
+
 
 export default class AddGroup extends Component {
   state = {
@@ -137,10 +139,10 @@ export default class AddGroup extends Component {
           </div>
           <br></br>
           <div>
-            <input type="submit" value="Save group" />
+            <input type="submit" value="Save group" onClick={this.props.history.goBack}/>
           </div>
         </form>
-
+        <Navbar/> 
       </div>
     );
   }
