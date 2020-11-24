@@ -1,31 +1,362 @@
+/* General */
+
 * {
   margin: 0;
   padding: 0;
 }
 
 .App {
-  padding: 20px;;
+  font-size: 10em;
+}
+h1{
+  font-size: 4em ;
+}
+h2{
+  font-size: 3em ;
+}
+h3{
+  font-size: 2.5em;
+}
+h4{
+  font-size: 2em;
+}
+h5{
+  font-size: 1.5em;
+}
+h6{
+  font-size: 0.8em;
+}
+p {
+  font-size: 1em;
 }
 
-nav.navbar { 
+/* Margin-top */
+.mt10 {
+  margin-top: 1em;
+}
+.mt20 {
+  margin-top: 2em;
+}
+.mt30 {
+  margin-top: 3em;
+}
+.mt40 {
+  margin-top: 4em;
+}
+.mt50 {
+  margin-top: 5em;
+}
+.mt60 {
+  margin-top: 6em;
+}
+.mt70 {
+  margin-top: 7em;
+}
+.mt80 {
+  margin-top: 8em;
+}
+.mt90 {
+  margin-top: 9em;
+}
+.mt100 {
+  margin-top: 1em;
+}
+
+/* Margin-bottom */
+.mb10 {
+  margin-bottom: 1em;
+}
+.mb20 {
+  margin-bottom: 2em;
+}
+.mb30 {
+  margin-bottom: 3em;
+}
+.mb40 {
+  margin-bottom: 4em;
+}
+.mb50 {
+  margin-bottom: 5em;
+}
+.mb60 {
+  margin-bottom: 6em;
+}
+.mb70 {
+  margin-bottom: 7em;
+}
+.mb80 {
+  margin-bottom: 8em;
+}
+.mb90 {
+  margin-bottom: 9em;
+}
+.mb100 {
+  margin-bottom: 1em;
+}
+/* Margin-left */
+.ml10 {
+  margin-left: 1em;
+}
+.ml20 {
+  margin-left: 2em;
+}
+.ml30 {
+  margin-left: 3em;
+}
+.ml40 {
+  margin-left: 4em;
+}
+.ml50 {
+  margin-left: 5em;
+}
+.ml60 {
+  margin-left: 6em;
+}
+.ml70 {
+  margin-left: 7em;
+}
+.ml80 {
+  margin-left: 8em;
+}
+.ml90 {
+  margin-left: 9em;
+}
+.mr100 {
+  margin-left: 1em;
+}
+/* Margin-right */
+.mr10 {
+  margin-right: 1em;
+}
+.mr20 {
+  margin-right: 2em;
+}
+.mr30 {
+  margin-right: 3em;
+}
+.mr40 {
+  margin-right: 4em;
+}
+.mr50 {
+  margin-right: 5em;
+}
+.mr60 {
+  margin-right: 6em;
+}
+.mr70 {
+  margin-right: 7em;
+}
+.mr80 {
+  margin-right: 8em;
+}
+.mr90 {
+  margin-right: 9em;
+}
+.mr100 {
+  margin-right: 1em;
+}
+
+/* Padding-top */
+.pt10 {
+  padding-top: 1em;
+}
+.pt20 {
+  padding-top: 2em;
+}
+.pt30 {
+  padding-top: 3em;
+}
+.pt40 {
+  padding-top: 4em;
+}
+.pt50 {
+  padding-top: 5em;
+}
+.pt60 {
+  padding-top: 6em;
+}
+.pt70 {
+  padding-top: 7em;
+}
+.pt80 {
+  padding-top: 8em;
+}
+.pt90 {
+  padding-top: 9em;
+}
+.pt100 {
+  padding-top: 1em;
+}
+
+/* Padding-bottom */
+.pb10 {
+  padding-bottom: 1em;
+}
+.pb20 {
+  padding-bottom: 2em;
+}
+.pb30 {
+  padding-bottom: 3em;
+}
+.pb40 {
+  padding-bottom: 4em;
+}
+.pb50 {
+  padding-bottom: 5em;
+}
+.pb60 {
+  padding-bottom: 6em;
+}
+.pb70 {
+  padding-bottom: 7em;
+}
+.pb80 {
+  padding-bottom: 8em;
+}
+.pb90 {
+  padding-bottom: 9em;
+}
+.pb100 {
+  padding-bottom: 1em;
+}
+
+/* Padding left */
+.pt10 {
+  padding-top: 1em;
+}
+.pt20 {
+  padding-top: 2em;
+}
+.pt30 {
+  padding-top: 3em;
+}
+.pt40 {
+  padding-top: 4em;
+}
+.pt50 {
+  padding-top: 5em;
+}
+.pt60 {
+  padding-top: 6em;
+}
+.pt70 {
+  padding-top: 7em;
+}
+.pt80 {
+  padding-top: 8em;
+}
+.pt90 {
+  padding-top: 9em;
+}
+.pt100 {
+  padding-top: 1em;
+}
+
+/* Padding-left */
+.pl10 {
+  padding-left: 1em;
+}
+.pl20 {
+  padding-left: 2em;
+}
+.pl30 {
+  padding-left: 3em;
+}
+.pl40 {
+  padding-left: 4em;
+}
+.pl50 {
+  padding-left: 5em;
+}
+.pl60 {
+  padding-left: 6em;
+}
+.pl70 {
+  padding-left: 7em;
+}
+.pl80 {
+  padding-left: 8em;
+}
+.pl90 {
+  padding-left: 9em;
+}
+.pl100 {
+  padding-left: 1em;
+}
+/* Padding-rigth */
+.pr10 {
+  padding-right: 1em;
+}
+.pr20 {
+  padding-right: 2em;
+}
+.pr30 {
+  padding-right: 3em;
+}
+.pr40 {
+  padding-right: 4em;
+}
+.pr50 {
+  padding-right: 5em;
+}
+.pr60 {
+  padding-right: 6em;
+}
+.pr70 {
+  padding-right: 7em;
+}
+.pr80 {
+  padding-right: 8em;
+}
+.pr90 {
+  padding-right: 9em;
+}
+.pr100 {
+  padding-right: 1em;
+}
+.w100{
+  width: 100%;
+}
+.h50{
+  height: 50vh;
+}
+.h80{
+  height: 80vh;
+}
+.h100{
+  height: 100vh;
+}
+.center-div{
   display: flex;
-  padding: 20px;
-  background: #686de0; 
+  justify-content: center;
+  align-items: center;
+  padding: 0.6em 1em;
+}
+
+/* Home */
+.home { 
+  flex-direction: column;
+  color: black;
+  height:35vh;
+  justify-content: flex-end;
+}
+.home-buttons{
+
 }
 
 nav.navbar .navbar-user{
-  margin-left: 10px;
-  color: white;
+  margin-left: 1em;
+  
 }
 
 button.navbar-button {
-  padding: 5px 20px;
-  width: 100px;
-  border-radius: 3px;
-  margin: 0 10px;
+  padding: 1em 2em;
+  width: 100%;
+  border-radius: 3em;
+  margin: 0 1em;
 }
 
 #home-btn {
-  color: white;
   text-decoration: none;
 }
+

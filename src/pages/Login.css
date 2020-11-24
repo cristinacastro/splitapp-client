@@ -1,0 +1,9 @@
+.form-container{
+    flex-direction: column;
+    height: 50%;
+}
+
+.form-elements{
+    flex-direction: column;
+}
+

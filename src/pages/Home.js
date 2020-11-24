@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
-      <nav className='navbar'>
+      <nav className='home center-div'>
         <Link to={"/"} id='home-btn'>
           <h4>Home</h4>
         </Link>
@@ -17,6 +17,7 @@ class Navbar extends Component {
             <button className='navbar-button' onClick={logout}>Logout</button>
           </>
         ) : (
+          <div class="center-div home-buttons">
           <>
             <Link to='/login'>
               <button className='navbar-button'>Login</button>
@@ -26,6 +27,7 @@ class Navbar extends Component {
               <button className='navbar-button'>Sign Up</button>
             </Link>
           </>
+          </div>
         )}
       </nav>
     );
