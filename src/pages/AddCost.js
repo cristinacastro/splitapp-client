@@ -42,29 +42,32 @@ export default class AddCost extends Component {
           },
           ticketTotal: 0
         });
+        this.props.history.goBack()
       } catch (error) {
         console.log(error, "POST expenses error");
       }
     } else {
-      console.log('ghwoigr')
-    try {
-      const res = await axios({
-        method: "POST",
-        url:
+      try {
+        const res = await axios({
+          method: "POST",
+          url:
           process.env.REACT_APP_API_URL +
           `/costs/add/${this.props.location.state.groupsList._id}`,
-        withCredentials: true,
-        data: { concept: concept, costImport: costImport, date: date },
-      });
-      this.setState({
-        concept: "",
-        costImport: 0,
-        date: ""
-      });
+          withCredentials: true,
+          data: { concept: concept, costImport: costImport, date: date },
+        });
+        this.setState({
+          concept: "",
+          costImport: 0,
+          date: ""
+        });
+        console.log(this.props.location.state.groupsList._id, 'holi')
+      this.props.history.goBack()
     } catch (error) {
       console.log(error, "POST expenses error");
     }
   }
+
   };
   sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -190,7 +193,7 @@ export default class AddCost extends Component {
           </div>
 
           <div>
-            <input type="submit" value="Add cost" onClick={this.props.history.goBack}/>
+            <input type="submit" value="Add cost"/>
           </div>
           <label for="image"> Image: </label>
           <input

@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 class GroupDetails extends Component {
   state = {
     listOfExpenses: [],
+    listOfCosts: [],
     group: this.props.location.state.groupsList,
     allImports: [],
     newArr: [],
@@ -19,7 +20,26 @@ class GroupDetails extends Component {
 
   componentDidMount() {
     this.getTotal();
+    this.getCosts();
   }
+
+  getCosts= async () => {
+    try {
+      const res = await axios({
+        method: "GET",
+        url:
+          process.env.REACT_APP_API_URL +
+          `/all-costs/${this.state.group._id}`,
+        withCredentials: true,
+      });
+      this.setState({
+        listOfCosts: res.data,
+      });
+      console.log(res.data, "olita");
+    } catch (error) {
+      console.log(error, "GET expenses error");
+    }
+  };
 
   getExpenses = async () => {
     try {
@@ -88,6 +108,8 @@ class GroupDetails extends Component {
           `/groups/delete/${this.state.group._id}`,
         withCredentials: true,
       });
+      this.props.history.push("/groups")
+
     } catch (error) {
       console.log(error, "GET expenses error");
     }
@@ -129,7 +151,7 @@ class GroupDetails extends Component {
         <button onClick={this.deleteGroup}>Delete group</button>
         <div>
           <h1>Costs list</h1>
-          {this.state.group.costs.map((eachCost) => {
+          {this.state.listOfCosts.map((eachCost) => {
             console.log(eachCost, "cada cost");
             return (
               <div>

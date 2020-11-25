@@ -93,7 +93,7 @@ export default class AddGroup extends Component {
         image: this.state.image,
         members: [],
       });
-      this.props.history.push('/groups')
+       this.props.history.push('/groups')
     } catch (error) {
       console.log(error, "POST expenses error");
     }
