@@ -2,23 +2,28 @@ import React from "react";
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
 
+import "./EachGroup.css";
+
+
 const EachGroup = ({ groups }) => {
     console.log(groups ,"grups")
   return (
-    <div>
+    <div className="group-list-item">
     
       <Link to={{pathname:`/groups/${groups._id}`, state: {groupsList: groups}}}>
-        <div>
-        <h3>{groups.name}</h3>
-        <img src={groups.image} alt="group pic" width="100" />
-        {groups.members.map((eachMember) => {
-          return (
-              <ul>
-           <li key={eachMember._id} >{eachMember.username}</li>
-          </ul>
-          )
-        })}
-        <br></br>
+        <div className="group-list-image">
+          <div >
+            <img src={groups.image} alt="group pic" width="100" />
+          </div>
+          <div className="group-list-text">
+            <h6>{groups.name}</h6>
+            {groups.members.map((eachMember) => {
+              return (
+              <span key={eachMember._id} >{eachMember.username},  </span>
+              )
+            })}
+            <br></br>
+          </div>
         </div>
       </Link>
     </div>

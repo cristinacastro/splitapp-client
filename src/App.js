@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider> 
-        <div className='container'>
+        <div >
 
           <Home />
           <Switch>

@@ -1,0 +1,48 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+.group-list-item img{
+    width: 55px;
+    border-radius: 50%;
+
+}
+.group-list-item {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
+  margin: 0.3em 1.8em 0.15em 1.8em;
+  padding: 0.5em 0em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10), 0 4px 4px rgba(0,0,0,0);
+
+}
+.group-list-image {
+  display: flex;
+  align-items: center;
+  margin: 0em 1em 0em 1em;
+}
+.group-list-text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5em;
+}
+.group-list-text{
+    display: inline;
+    font-size: 0.8em;
+}
+.group-list-item span{
+    letter-spacing: 0.6px;
+}
+.group-list-text h6{
+    font-size: 1.4em;
+}

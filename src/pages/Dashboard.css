@@ -1,0 +1,57 @@
+.dashboard{
+    background-size: cover;
+    height: 100vh;
+    background-position-x: center;
+    background-position-y: center;
+    padding-top: 3em;
+    background-color: rgba(236, 236, 236, 0.24);
+}
+.dashboard h3{
+    text-align: center;
+}
+
+.dash-btn{
+    margin: 1em 2em;
+    padding: 2em 2em;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0);
+}
+.dash-btn h4{
+    font-size: 1.3em;
+    font-weight: 600;
+    padding-left:0.5em;
+}
+.dash-btn img{
+    width: 70px;
+    margin-bottom: 0.7em;
+    margin-right: 1em;
+}
+.dash-btn p{
+    font-size: 0.7em;
+    margin: 0em 0em 1em 0em;
+    padding-left:1em;
+
+}
+.dash-btn button {
+    border:none;
+    width: 80%;
+    padding: 0em 1em;
+    font-size: 0.6em;
+    height: 2.5em;
+    letter-spacing: 0.1em;
+    border: none !important;
+    cursor: pointer;
+    margin-left: 1em;
+    transition-duration: 0.5s;
+}
+.dash-btn a:hover{
+    background-color: rgb(46, 49, 78);
+    color: white
+}
+
+/* Botó no canvia de color!!!!!!!!!!!!!!!!!!!!!! */
+

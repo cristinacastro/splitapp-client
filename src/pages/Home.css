@@ -1,8 +1,41 @@
 .home { 
     color: black;
     justify-content: center;
+    background-color: #173052;
+    width: 100%;
   }
 .home-loggedin{
     justify-content: space-between;
     width: 100%;
+    background-color: transparent;
+    padding: 0.7em 1.7em;
+    color: white;
+}
+.home-loggedin img{
+    width: 1.7em;
+}
+.home-loggedin button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.home-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.home-buttons button{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    color: white;
+    align-items: flex-end;
+    padding: 1.5em 1.4em 0em 0em;
+    cursor: pointer;
+}
+
+.home-buttons a{
+    text-align: right;
 }

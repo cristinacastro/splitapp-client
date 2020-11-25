@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";	
-import "./Signup.css";
+import "./Login.css";
 import axiosRequestFunctions from "../lib/auth-service";
 
 
@@ -23,26 +23,22 @@ class Signup extends Component {
   render() {
     const { username, email, password } = this.state;
     return (
-      <div  className="h100">
+      <div  className="h100 log-container" style={{backgroundImage: `url(./../images/gradient.jpg)`}}>
         <div className="center-div form-container">
-          <h2>Sign Up</h2>
+        <h3 className="align-left ml10 mb10">Sign up</h3>
+          <form onSubmit={this.handleFormSubmit}  className="center-div form-elements w100">
 
-          <form onSubmit={this.handleFormSubmit}  className="center-div form-elements">
+            <input type="text" name="username" placeholder="Enter your username" value={username} onChange={this.handleChange} />
 
-            <label>Username:</label>
-            <input type="text" name="username" value={username} onChange={this.handleChange} />
+            <input type="email" name="email" placeholder="Enter your email" value={email} onChange={this.handleChange} />
 
-            <label>Email:</label>
-            <input type="email" name="email" value={email} onChange={this.handleChange} />
+            <input type="password" name="password" placeholder="Enter your password" value={password} onChange={this.handleChange} />
 
-            <label>Password:</label>
-            <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-            <input type="submit" value="Signup" />
+            <input type="submit" value="Sign up to new account" className="button-input" />
           </form>
-        <div>
-          <p>Already have account?</p>
-          <Link to={"/login"}> Login</Link>
+        <div className="center-div ">
+          <p className="mr10">Already have account?</p>
+          <Link to={"/login"} className="account-link"> Login</Link>
         </div>
       </div>
       </div>

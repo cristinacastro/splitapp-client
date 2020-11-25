@@ -1,0 +1,133 @@
+/* .profile{
+    background-image: url('https://res.cloudinary.com/ddeo1zojg/image/upload/v1606253935/photo5902101736011707642_zipn9h.jpg');
+    background-size: cover;
+    
+} */
+
+.cover{
+    height: 30vh;
+    width: 100%;
+    text-align:center;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover-edit{
+    height: 30vh;
+    width: 100%;
+    text-align:center;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.cover-edit button {
+    background-color: transparent !important;
+    border: none;
+    margin: 2em 1em 1em 1em;
+    cursor: pointer;
+}
+.cover-edit img {
+    width: 20px;
+}
+.profile-container-flex{
+    height: 50%;
+    width: 90vw;
+    margin-top: 3em;
+    border-radius: 10px;
+}
+.profile-img{
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 8em;
+    height: 8em;
+   
+}
+.profile-items{
+    flex-direction: column;
+    margin: 1em 1.5em;
+    align-items: flex-start;
+}
+.profile-items-edit{
+    flex-direction: column;
+}
+.edit-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.6em;
+}
+.edit-div h4{
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+}
+.profile-items img{
+    width: 25px;
+}
+
+hr{
+    width: 100%;
+    background-color: rgb(228, 228, 228);
+    height: 0.1em;
+    margin-top: 0.4em;
+    border: none
+}
+.fondo{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.profile-container-flex h3 {
+    color: black;
+}
+.profile-container-flex h5{
+    font-weight: 500;
+}
+.profile-container-flex p{
+    margin-top: 1.2em;
+    font-weight: 400;
+    color: rgb(119, 117, 117)
+}
+.profile-container-flex label{
+    margin-top: 1.2em;
+    font-weight: 400;
+    color: rgb(119, 117, 117)
+}
+.profile-container-flex form{
+    display: flex;
+    flex-direction: column;
+}
+.profile-dades{
+    flex-direction: column;
+    margin-top: 2em;
+    text-align:left;
+}
+
+.edit-div-edit{
+    display: flex;
+   flex-direction: column;
+}
+.edit-div-edit input{
+    margin-top: 1.2em;
+    font-weight: 600;
+    color: rgb(119, 117, 117);
+    border: none;
+    border-bottom: solid 0.1em rgb(228, 228, 228);
+}
+.edit-div-edit h4{
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+}
+.input-button{
+    width: 100%;
+    height: 2.5em;
+    letter-spacing: 0.2em;
+    border: none !important;
+    margin-top: 2em !important;
+    cursor: pointer;
+}

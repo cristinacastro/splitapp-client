@@ -14,16 +14,40 @@ class Dashboard extends Component {
  
   render() {
     return (
-      <div className="page">
+      <div className="page dashboard">
         <div>
         
-          <h1>Dashboard</h1>
+          <h3>Dashboard</h3>
           <div className="center-div dash-btn">
-            <Link to='/arrangements'><button>Arrangements</button></Link>
+            <div>
+            <img src="./../images/group-big.png"></img>
+            </div>
+            <div>
+          <h4>Groups</h4>
+          <p>Access to all your active grups and check all the costs and expenses.</p>
+            <Link to='/groups'><button>VIEW GROUPS</button></Link>
           </div>
-
+          </div>
           <div className="center-div dash-btn">
-            <Link to='/groups'><button>Groups</button></Link>
+            <div>
+          <img src="./../images/money-transfer.png"></img>
+          </div>
+          <div>
+            <h4>Arrangements</h4>
+            <p>Check all your current debts and your pending incomes.</p>
+            <Link to='/arrangements'><button>VIEW ARRANGEMENTS</button></Link>
+          </div>
+          
+          </div>
+          <div className="center-div dash-btn">
+            <div>
+            <img src="./../images/resume.png"></img>
+            </div>
+            <div>
+          <h4>Profile</h4>
+          <p>Access to all your active grups and check all the costs and expenses.</p>
+            <Link to='/profile'><button>VIEW YOUR PROFILE</button></Link>
+          </div>
           </div>
         </div>
           <Navbar/>

@@ -1,9 +1,49 @@
 .form-container{
     flex-direction: column;
     height: 80%;
+    text-align: left;  
 }
 
 .form-elements{
     flex-direction: column;
+}
+
+.log-container{
+    color: white;
+   background-size: cover;
+   background-position-x: center;
+   background-position-y: center;
+}
+  
+.log-container input {
+      width: 75%;
+      height: 3em;
+      margin: 0.7em 0em;
+      padding: 0em 1em;
+      border: none;
+      border-bottom: 1px solid white;
+      background:transparent;
+      color: white;
+      font-size: 1em;
+      font-weight: 400;
+}
+
+.button-input{
+    width: 80%;
+    font-weight: 500;
+    background-color: white !important;
+    color: rgb(71,93,106)  !important;
+    cursor: pointer;
+    margin-top: 2.5em  !important;
+    letter-spacing: 0px;
+}
+.account-link{
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+.account-link:hover{
+    color: rgba(43, 70, 128, 0.623);
 }
 

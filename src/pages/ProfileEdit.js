@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import service from "../api/service";
+import "./Profile.css";
+
 
 class Profile extends Component {
   state = {
@@ -27,13 +29,13 @@ class Profile extends Component {
   };
 
 
-  editProfile = async (id,username,image,phone) => {
+  editProfile = async (id, username, image, phone) => {
     try {
       const res = await axios({
         method: "PATCH",
         url: process.env.REACT_APP_API_URL + `/profile/edit/${id}`,
         withCredentials: true,
-        data: {id,username,image,phone}
+        data: { id, username, image, phone }
       })
       console.log(res.data, "resp")
     } catch (error) {
@@ -43,10 +45,10 @@ class Profile extends Component {
 
   handleFormSubmit = async (e) => {
     e.preventDefault();
-    const {username,image,phone} = this.state
+    const { username, image, phone } = this.state
     console.log(username, "usern")
     const id = this.props.user._id
-    this.editProfile(id,username,image,phone)
+    this.editProfile(id, username, image, phone)
 
   }
 
@@ -59,41 +61,49 @@ class Profile extends Component {
     console.log(this.props, "props")
     console.log(this.state, "state")
     return (
-      <div>
-        <h1>Your profile</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <label htmlFor= "username">Name:</label>
-          <input
-          id="username"
-            type="text"
-            name="username"
-            value={this.username}
-            onChange={this.handleChange}
-          />
+      <div className="page profile">
+        <div className="cover-edit" style={{ backgroundImage: `url(./../images/gradient.jpg)` }}>
+          <button onClick={this.props.history.goBack}><img src="./../images/bacwk.png"></img></button>
 
-          <label htmlFor="image"> Image: </label>
-          <input
-          id="image"
-            type="file"
-            name="image"
-            onChange={this.handleFileUpload}
-          />
-        
-          <label htmlFor= "phone">Edit phone</label>
-          <input
-            id="phone"
-            type="text"
-            name="phone"
-            value={this.phone}
-            onChange={this.handleChange}
-          />
-          <div>
-            <input type="submit" value="Save profile" onClick={this.props.history.goBack}/>
+        </div>
+        <div className="profile-container-flex">
+          <div className="profile-items">
+            <div className="edit-div-edit">
+              <h4>Edit your profile</h4>
+              <form onSubmit={this.handleFormSubmit}>
+                <label htmlFor="username">Name:</label>
+                <input
+                  id="username"
+                  type="text"
+                  name="username"
+                  value={this.username}
+                  onChange={this.handleChange}
+                />
+
+                <label htmlFor="image"> Image: </label>
+                <input
+                  id="image"
+                  type="file"
+                  name="image"
+                  onChange={this.handleFileUpload}
+                />
+
+                <label htmlFor="phone">Edit phone</label>
+                <input
+                  id="phone"
+                  type="text"
+                  name="phone"
+                  value={this.phone}
+                  onChange={this.handleChange}
+                />
+                <div>
+                  <input type="submit" value="SAVE PROFILE"className="input-button" onClick={this.props.history.goBack} />
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
-
-        <button onClick={this.props.history.goBack}>Go Back</button>
-        <Navbar/> 
+        </div>
+        <Navbar />
       </div>
     );
   }
