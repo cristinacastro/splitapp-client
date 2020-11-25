@@ -3,6 +3,8 @@ import axios from "axios";
 import service from "../api/service";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar"
+import Checkbox from "../components/Checkbox"
+
 
 export default class AddCost extends Component {
   state = {
@@ -13,13 +15,38 @@ export default class AddCost extends Component {
     ticket: {
       merchant: "",
       items: [],
+      date: ""
     },
+    ticketTotal: 0
   };
 
   handleSubmit = async (e) => {
-    const { concept, costImport, date } = this.state;
+    const { concept, costImport, date, ticketTotal, ticket } = this.state;
     e.preventDefault();
     console.log("hola");
+    if(ticket.items.length > 0){
+      try {
+        const res = await axios({
+          method: "POST",
+          url:
+            process.env.REACT_APP_API_URL +
+            `/costs/add/${this.props.location.state.groupsList._id}`,
+          withCredentials: true,
+          data: { concept: ticket.merchant, costImport: ticketTotal, date: ticket.date },
+        });
+        this.setState({
+          ticket: {
+            merchant: "",
+            items: [],
+            date: ""
+          },
+          ticketTotal: 0
+        });
+      } catch (error) {
+        console.log(error, "POST expenses error");
+      }
+    } else {
+      console.log('ghwoigr')
     try {
       const res = await axios({
         method: "POST",
@@ -29,7 +56,6 @@ export default class AddCost extends Component {
         withCredentials: true,
         data: { concept: concept, costImport: costImport, date: date },
       });
-
       this.setState({
         concept: "",
         costImport: 0,
@@ -38,6 +64,7 @@ export default class AddCost extends Component {
     } catch (error) {
       console.log(error, "POST expenses error");
     }
+  }
   };
   sleep = (ms) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -88,6 +115,8 @@ export default class AddCost extends Component {
           receipt.data.analyzeResult.documentResults[0].fields.MerchantName
             .text,
         items: [],
+        date: 
+          receipt.data.analyzeResult.documentResults[0].fields.TransactionDate.text
       };
       let item;
       for (var march in receipt.data.analyzeResult.documentResults[0].fields
@@ -99,7 +128,7 @@ export default class AddCost extends Component {
 
         obj.items.push({
           name: item.valueObject.Name.text,
-          price: item.valueObject.TotalPrice.text,
+          price: item.valueObject.TotalPrice.valueNumber,
         });
       }
       this.setState({ ticket: obj });
@@ -107,6 +136,20 @@ export default class AddCost extends Component {
       console.log("Error while uploading the file: ", error);
     }
   };
+
+  sumTicketImports = ((input, checked) =>{
+    let { ticketTotal } = this.state;
+
+    if (checked) {
+      ticketTotal += input
+    } else {
+      ticketTotal -= input
+    }
+
+    this.setState({
+      ticketTotal
+    });
+  })
 
   handleChange = (e) => {
     let { name, value } = e.target;
@@ -158,15 +201,23 @@ export default class AddCost extends Component {
           />
           <div>
             <span>{this.state.ticket.merchant}</span>
+            <span>{this.state.ticket.date}</span>
+
             <ul>
-              {this.state.ticket.items.map((item) => {
+              {this.state.ticket.items.map((item, index) => {
+                console.log(item)
                 return (
-                  <li>
-                    {item.name} - {item.price}
-                  </li>
+                  <div>
+                    <li key={index}>
+                      {item.name} - {item.price}
+                    </li>
+                    <Checkbox calculateTotal={this.sumTicketImports} value={item.price}/>
+                  </div>
                 );
               })}
             </ul>
+            <p>Total: {this.state.ticketTotal.toFixed(2)}</p>
+
           </div>
         </form>
         <button onClick={this.props.history.goBack}>Go Back</button>

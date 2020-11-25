@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import Search from "../components/Search";
 import service from "../api/service";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import { Redirect } from "react-router";
+import "./AddGroup.css";
+
 
 
 export default class AddGroup extends Component {
@@ -29,7 +32,7 @@ export default class AddGroup extends Component {
       this.setState({
         members: res.data,
       });
-      //console.log(this.state.members);
+      console.log(this.state.members, 'members all');
     } catch (error) {
       console.log(error, "GET expenses error");
     }
@@ -90,6 +93,7 @@ export default class AddGroup extends Component {
         image: this.state.image,
         members: [],
       });
+      this.props.history.push('/groups')
     } catch (error) {
       console.log(error, "POST expenses error");
     }
@@ -102,7 +106,8 @@ export default class AddGroup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="create-group">
+        <button onClick={this.props.history.goBack}><img src="../../images/bacwk.png"></img></button>
         <h1>Create your group</h1>
         <h3>Select the members of your group:</h3>
         <br></br>
@@ -139,7 +144,7 @@ export default class AddGroup extends Component {
           </div>
           <br></br>
           <div>
-            <input type="submit" value="Save group" onClick={this.props.history.goBack}/>
+            <input type="submit" value="Save group"/>
           </div>
         </form>
         <Navbar/> 
@@ -147,3 +152,6 @@ export default class AddGroup extends Component {
     );
   }
 }
+
+
+
