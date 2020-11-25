@@ -4,7 +4,7 @@ import { withAuth } from "../lib/AuthProvider";
 import "./Home.css";
 
 
-class Home extends Component {
+class Navbar extends Component {
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
@@ -34,4 +34,4 @@ class Home extends Component {
   }
 }
 
-export default withAuth(Home);
+export default withAuth(Navbar);
