@@ -160,7 +160,7 @@ class GroupDetails extends Component {
                 <h3>{eachCost.concept}</h3>
                 <h3>{eachCost.costImport}</h3>
 
-                <p>{eachCost.date}</p>
+                <p>{eachCost.date.slice(0, 10)}</p>
 
                 {this.state.group.members.map((eachMember) => {
                   if (eachMember._id === eachCost.buyer) {

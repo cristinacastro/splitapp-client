@@ -10,10 +10,10 @@ import Navbar from "../components/Navbar"
 class Arrangements extends Component {
 
  state = {
-    listOfExpenses: [],
+    listOfArrangements: [],
   }
 
-  getAllExpenses = async () => {
+  getArrangements = async () => {
     try{
         const res = await axios({
             method: 'GET',
@@ -22,7 +22,7 @@ class Arrangements extends Component {
         })
 
          this.setState({
-          listOfExpenses: res.data
+          listOfArrangements: res.data
         });
       } catch (error) {
       console.log(error, 'GET expenses error')
@@ -30,7 +30,7 @@ class Arrangements extends Component {
   }
 
   componentDidMount() {
-        this.getAllExpenses();
+        this.getArrangements();
     }
     render() {
         //console.log(this.props.user._id, "dsf")
@@ -42,7 +42,7 @@ class Arrangements extends Component {
 
                  <div>
                  <h3>Your debts</h3>
-                    {this.state.listOfExpenses.map(eachExpense => {
+                    {this.state.listOfArrangements.map(eachExpense => {
                     if(eachExpense.payer._id.toString() == this.props.user._id.toString()){
                         console.log("cfsfvvv")
                         return (
@@ -61,7 +61,7 @@ class Arrangements extends Component {
             
                 <div>
                  <h3>Your incomes</h3>
-                    {this.state.listOfExpenses.map(eachExpense => {
+                    {this.state.listOfArrangements.map(eachExpense => {
                         console.log(eachExpense.beneficiary._id.usermame)
                     if(eachExpense.beneficiary._id.toString() == this.props.user._id.toString()){
                         return (
@@ -70,7 +70,7 @@ class Arrangements extends Component {
                             {eachExpense.payer.username}<p>owes</p>
                             {eachExpense.beneficiary.username}<p></p>
                             {eachExpense.expenseImport}<p>euros</p>
-                            <Link to = {{pathname:`/groups/${eachExpense.group._id}`, state: {groupsList: eachExpense.group, costs: eachExpense.group.costs}}} > {eachExpense.group.name} </Link>
+                            {/* <Link to = {{pathname:`/groups/${eachExpense.group._id}`, state: {groupsList: eachExpense.group, costs: eachExpense.group.costs}}} > {eachExpense.group.name} </Link> */}
                             <br></br>
                             
                             </div>
