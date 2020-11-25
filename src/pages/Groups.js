@@ -5,6 +5,8 @@ import axios from 'axios';
 import auth from "../lib/auth-service";
 import EachGroup from "../components/EachGroup";
 import Navbar from "../components/Navbar"
+import "./Groups.css";
+
 
 
 class Groups extends Component {
@@ -52,18 +54,23 @@ class Groups extends Component {
 
     render() {
         return (
-            <div>
-            <h1>Your groups</h1>
-            <button onClick={this.createEmptyGroup}>Create Group</button>
-                <div>
-                {this.state.listOfGroups.map(eachGroup => {
-                    console.log(eachGroup, "cada grup")
-                    return (
-                      <EachGroup key={eachGroup._id} groups={eachGroup}/>
-                    )
-                  })}
-                </div>
-                <Navbar/> 
+            <div className="groups-page">
+              <div className="groups-header">
+                <img src="./../images/group-big.png"></img>
+                <h3>What are you <br></br>sharing today?</h3>
+                <button onClick={this.createEmptyGroup}>Create Group</button>
+              </div>
+              <div className="group-list-button">
+                      <div>
+                      {this.state.listOfGroups.map(eachGroup => {
+                          console.log(eachGroup, "cada grup")
+                          return (
+                            <EachGroup key={eachGroup._id} groups={eachGroup}/>
+                          )
+                        })}
+                      </div>
+              </div>
+              <Navbar/> 
             </div>
         )
     }

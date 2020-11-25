@@ -12,12 +12,12 @@ class Navbar extends Component {
         {isLoggedin ? (
           <div className="center-div home-loggedin">
             <>
-              <p className='navbar-user'>username:{user.username}</p>
-              <button className='navbar-button' onClick={logout}>Logout</button>
+              <p>{user.username}</p>
+              <button onClick={logout}><img src="./../images/logout-white.png"></img></button>
             </>
           </div>
         ) : (
-          <div class="center-div home-buttons">
+          <div class="home-buttons">
           <>
             <Link to='/login'>
               <button className='navbar-button'>Login</button>

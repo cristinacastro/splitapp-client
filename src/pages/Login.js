@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";	
-
 import "./Login.css";
 
 
@@ -23,19 +22,17 @@ class Login extends Component {
     const { email, password } = this.state;
 
     return (
-      <div className="h100">
+      <div className="h100 log-container" style={{backgroundImage: `url(./../images/gradient.jpg)`}}>
         <div className="center-div form-container">
-        <h2>Login</h2>
+          <h3 className="align-left ml10 mb10">Log in</h3>
 
-        <form onSubmit={this.handleFormSubmit} className="center-div form-elements">
+        <form onSubmit={this.handleFormSubmit} className="center-div form-elements w100">
           
-          <label>email:</label>
-          <input type="text" name="email" value={email} onChange={this.handleChange}/>
+          <input type="text" name="email" placeholder="Enter your email" value={email} onChange={this.handleChange}/>
 
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
+          <input type="password" name="password" placeholder="Enter your password" value={password} onChange={this.handleChange} />
 
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login to your account" className="button-input"/>
         </form>
         </div>
       </div>

@@ -5,6 +5,9 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import service from "../api/service";
 
+import "./Profile.css";
+
+
 class Profile extends Component {
 
   state = {
@@ -34,14 +37,36 @@ class Profile extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Your profile</h1>
-        <p>{this.state.userProfile.username}</p>
-        {this.state.userProfile.email}
-         <p>Bizum:{this.state.userProfile.phone}</p>
-         <img src = {this.state.userProfile.image}/>
-         <Link to= {`/profile-edit/${this.state.userProfile._id}`} profiles={this.state.userProfile}>Edit profile</Link>
+      <div className="page profile">
+      
+        <div className="cover" style={{backgroundImage: `url(./../images/gradient.jpg)`}}>
+              <img className="profile-img" src={this.state.userProfile.image}/>
+        </div>
+  
+          <div className="profile-container-flex">
+              <div className="profile-items">
+                <div className="edit-div">
+              <h4>Your profile</h4>
+              <Link to= {`/profile-edit/${this.state.userProfile._id}`} profiles={this.state.userProfile}><img src="./../images/edit-icon.jpg"/></Link>
+              </div>
+                {/* <img src="./../images/fondo.jpg" /> */}
+                <p>Username:</p>
+                <h5>{this.state.userProfile.username}</h5>
+                <hr></hr>
+             
+                <p>Email:</p>
+                <h5>{this.state.userProfile.email}</h5>
+                <hr></hr>
+                <p>Phone:</p>
+                <h5>{this.state.userProfile.phone}</h5>
+                <hr></hr>
+                <p>Pyment method:</p>
+                <h5>Bizum</h5>
+             <hr></hr>
+              </div>
+          </div>
          <Navbar/> 
+
       </div>
     );
   }

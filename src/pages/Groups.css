@@ -1,0 +1,23 @@
+.groups-page{
+    background-color: rgba(236, 236, 236, 0.24);
+    height: 100vh;
+
+}
+.groups-header{
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    text-align: center;
+    background-color: rgba(201, 218, 230, 0.507);
+}
+.groups-header img{
+    width: 50px;
+    margin-bottom: 1em;
+}
+.group-list-button{
+    margin-top: 3em;
+}
+
