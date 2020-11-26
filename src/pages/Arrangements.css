@@ -1,0 +1,32 @@
+.arrengementDetails {
+    display:flex;
+    width: 100%;
+justify-content: center;
+}
+
+.arrengementDetails img {
+    width: 20px;
+    height: 20px;
+}
+.arrengementText {
+ text-align: left;
+}
+
+.arrengementText p{
+    padding: 0px;
+}
+
+.arrengementText hr{
+    width: 100%;
+    margin-bottom: 20px;
+   }
+
+.arrengementContainer {
+    flex-direction: column;
+}
+
+.arrengementContainer hr {
+width: 15%;
+border-bottom: 2px solid grey;
+margin-bottom: 20px;
+}

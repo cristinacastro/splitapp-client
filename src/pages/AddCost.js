@@ -67,7 +67,7 @@ export default class AddCost extends Component {
           method: "GET",
           url: receipt_raw.headers["operation-location"], // HO POSEM EN CORXETES PERQUE NO ACCEPTA DOT NOTATION
           headers: {
-            "ocp-apim-subscription-key": "283baf18bf244fb599712265b21633c6",
+            "ocp-apim-subscription-key": process.env.REACT_APP_RECEIPT_API_KEY,
             "content-type": "application/json",
           },
         });
