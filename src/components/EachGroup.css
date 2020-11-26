@@ -11,6 +11,7 @@ li {
 }
 .group-list-item img{
     width: 55px;
+    height: 55px;
     border-radius: 50%;
 
 }
@@ -21,15 +22,16 @@ li {
   align-items: center;
   justify-content: left;
   text-align: left;
-  margin: 0.3em 1.8em 0.15em 1.8em;
+  margin: 0.6em 1.8em 0.15em 1.8em;
   padding: 0.5em 0em;
   box-shadow: 0 4px 10px rgba(0,0,0,0.10), 0 4px 4px rgba(0,0,0,0);
-
 }
 .group-list-image {
   display: flex;
   align-items: center;
-  margin: 0em 1em 0em 1em;
+  justify-content: space-around;
+  margin: 0em;
+  width: 100%;
 }
 .group-list-text{
     display: flex;
@@ -45,4 +47,23 @@ li {
 }
 .group-list-text h6{
     font-size: 1.4em;
+}
+.groups-details-button{
+align-items: space-around;
+}
+.group-icon-name{
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+.view-group{
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+.view-group p{
+  font-size: 0.6em;
+  width: 100%;
 }

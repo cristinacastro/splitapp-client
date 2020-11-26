@@ -39,7 +39,7 @@ class Profile extends Component {
     return (
       <div className="page profile">
       
-        <div className="cover" style={{backgroundImage: `url(./../images/gradient.jpg)`}}>
+        <div className="cover">
               <img className="profile-img" src={this.state.userProfile.image}/>
         </div>
   

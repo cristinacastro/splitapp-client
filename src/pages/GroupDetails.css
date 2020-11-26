@@ -1,0 +1,80 @@
+.groups-details-page{
+    background-color: rgba(236, 236, 236, 0.24);
+    height: 100vh;
+}
+.groups-details-header{
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    padding: 3em 5em 1em 5em;
+    text-align: center;
+    background-color: transparent;
+    color: black;
+    margin-bottom: 4em;
+}
+.groups-details-header img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+}
+
+.groups-details-header h6{
+    font-size: 1em;
+    font-weight: 400;
+}
+.groups-details-header h3{
+    font-weight: 600;
+}
+.group-details-body{
+    margin: 2em;
+    text-align:center;
+}
+
+
+
+
+.each-cost{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: space-between;
+    text-align: left;
+    margin: 0.3em 1em 0.15em 1em;
+    padding: 0.5em 0em;
+    border-bottom: 1px solid grey;
+    
+}
+.const-list-section{
+    justify-content: flex-start;
+}
+.cost-list-section h2{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.cost-list-section h3{
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+}
+.cost-list-section p{
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-bottom:0.4em;
+}
+.cost-list-section span{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.total-cost-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+}
+.total-cost-div h4{
+    font-size: 1.4em;
+    font-weight: 500;
+}

@@ -62,9 +62,9 @@ class Profile extends Component {
     console.log(this.state, "state")
     return (
       <div className="page profile">
-        <div className="cover-edit" style={{ backgroundImage: `url(./../images/gradient.jpg)` }}>
-          <button onClick={this.props.history.goBack}><img src="./../images/bacwk.png"></img></button>
-
+        <div className="cover-edit">
+          {/* <button onClick={this.props.history.goBack}><img src="./../images/bacwk.png"></img></button> */}
+          
         </div>
         <div className="profile-container-flex">
           <div className="profile-items">
@@ -97,7 +97,7 @@ class Profile extends Component {
                   onChange={this.handleChange}
                 />
                 <div>
-                  <input type="submit" value="SAVE PROFILE"className="input-button" onClick={this.props.history.goBack} />
+                  <input type="submit" value="SAVE PROFILE"className="input-button edit-profile" onClick={this.props.history.goBack} />
                 </div>
               </form>
             </div>

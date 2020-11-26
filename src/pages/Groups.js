@@ -41,7 +41,7 @@ class Groups extends Component {
             withCredentials: true,
            
         })
-        window.location = `/groups/edit/${res.data._id}`
+        window.location = `/groups-edit/${res.data._id}`
 
     } catch (error) {
         console.log(error, 'POST expenses error')
@@ -54,13 +54,17 @@ class Groups extends Component {
 
     render() {
         return (
+         
             <div className="groups-page">
               <div className="groups-header">
                 <img src="./../images/group-big.png"></img>
                 <h3>What are you <br></br>sharing today?</h3>
-                <button onClick={this.createEmptyGroup}>Create Group</button>
+                <p>In this section you can add as many groups as you want and start spliting expenses in an easy way.</p>
               </div>
               <div className="group-list-button">
+                <div className="center-div">
+                <button onClick={this.createEmptyGroup} className="input-button">CREATE GROUP</button>
+                </div>
                       <div>
                       {this.state.listOfGroups.map(eachGroup => {
                           console.log(eachGroup, "cada grup")
@@ -70,7 +74,9 @@ class Groups extends Component {
                         })}
                       </div>
               </div>
+              <div className="center-div">
               <Navbar/> 
+              </div>
             </div>
         )
     }

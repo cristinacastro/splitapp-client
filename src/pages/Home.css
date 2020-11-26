@@ -7,17 +7,23 @@
 .home-loggedin{
     justify-content: space-between;
     width: 100%;
-    background-color: transparent;
-    padding: 0.7em 1.7em;
-    color: white;
+    background-color: #fbfbfb !important;
+    padding: 1em 1.7em;
+    color: black;
+    align-items: center;
+
 }
 .home-loggedin img{
-    width: 1.7em;
+    width: 4.5em;
+}
+.home-loggedin p{
+    font-size: 0.8em;
+    margin-left: 0.5em;
 }
 .home-loggedin button{
     background-color: transparent;
     border: none;
-    color: white;
+    color: black;
     align-items: flex-end;
     cursor: pointer;
 }

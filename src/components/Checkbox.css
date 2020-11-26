@@ -1,0 +1,10 @@
+.input-checkbox-size{
+    width: 1.33em !important;
+    margin-bottom: 0px !important;
+}
+.checkbox-container{
+    width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}

@@ -1,32 +1,53 @@
 .arrengementDetails {
-    display:flex;
-    width: 100%;
-justify-content: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 0.6em;
 }
-
 .arrengementDetails img {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 .arrengementText {
- text-align: left;
+  text-align: left;
 }
-
-.arrengementText p{
-    padding: 0px;
+.arrengementText p {
+  padding: 0px;
 }
-
-.arrengementText hr{
-    width: 100%;
-    margin-bottom: 20px;
-   }
+.arrengementText hr {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
 .arrengementContainer {
-    flex-direction: column;
+  flex-direction: column;
+  margin: 2em 1.5em 0em 1.5em;
+  background-color: white;
+  padding: 1em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0);
 }
-
 .arrengementContainer hr {
-width: 15%;
-border-bottom: 2px solid grey;
-margin-bottom: 20px;
+  width: 20%;
+  background: grey;
+  height: 0.1em;
+  margin-bottom: 20px;
+  margin-top: 1em;
+}
+.arrengementContainer h5 {
+    font-size: 1em;
+  }
+  .arrengementContainer h6 {
+    font-weight: 400;
+    font-size: 0.9em;;
+    margin: 0em 1em;
+    letter-spacing: 0.8px;
+  }
+.you-owe{
+color: rgba(163, 10, 10, 0.616);
+font-weight: 600;
+}
+.you-owed{
+    color: rgba(0, 128, 0, 0.507);
+    font-weight: 600;
+
 }
