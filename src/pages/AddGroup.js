@@ -123,8 +123,8 @@ export default class AddGroup extends Component {
                     return (
                       <div>
                         {member.username}
-                        <button onClick={this.memberPush} id="show-all">
-                          Add member
+                        <button onClick={this.memberPush} id="show-all" className="add-member">
+                          ADD
                         </button>
                       </div>
                     );

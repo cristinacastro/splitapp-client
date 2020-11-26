@@ -38,3 +38,15 @@ button{
     font-size: 0.6em;
     margin: 0em 1em 2em 0em !important;
 }
+.add-member{
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+    color: #2c4f90;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    transition-duration:0.5 ;
+}
+.add-member:hover{
+    font-weight: 600;
+}

@@ -62,15 +62,15 @@ class Profile extends Component {
     console.log(this.state, "state")
     return (
       <div className="page profile">
-        <div className="cover-edit">
+        <div className="cover">
           {/* <button onClick={this.props.history.goBack}><img src="./../images/bacwk.png"></img></button> */}
           
         </div>
         <div className="profile-container-flex">
           <div className="profile-items">
-            <div className="edit-div-edit">
+            <div className="edit-div edit-profile-form">
               <h4>Edit your profile</h4>
-              <form onSubmit={this.handleFormSubmit}>
+              <form onSubmit={this.handleFormSubmit} >
                 <label htmlFor="username">Name:</label>
                 <input
                   id="username"

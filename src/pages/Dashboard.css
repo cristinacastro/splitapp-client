@@ -8,6 +8,8 @@
 .dashboard h3{
     text-align: center;
     color:#2c4f90;
+    font-weight: 500;
+    margin-top: 0.7em;
 }
 
 .dash-btn{
@@ -49,10 +51,6 @@
     transition-duration: 0.5s;
     background-color: rgb(235, 233, 233);
 }
-.dash-btn a:hover{
-    background-color: rgb(46, 49, 78);
-    color: white
-}
 
-/* Botó no canvia de color!!!!!!!!!!!!!!!!!!!!!! */
+
 

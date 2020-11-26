@@ -22,10 +22,12 @@ li {
   align-items: center;
   justify-content: left;
   text-align: left;
-  margin: 0.6em 1.8em 0.15em 1.8em;
+  margin: 0em 1em 0.2em 1em;
   padding: 0.5em 0em;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.10), 0 4px 4px rgba(0,0,0,0);
-}
+  border-top: rgb(223, 223, 223) 1.5px solid;
+  transition-duration: 0.5s}
+
+ 
 .group-list-image {
   display: flex;
   align-items: center;
@@ -45,6 +47,7 @@ li {
 .group-list-item span{
     letter-spacing: 0.6px;
 }
+
 .group-list-text h6{
     font-size: 1.4em;
 }
@@ -63,7 +66,17 @@ align-items: space-around;
   justify-content: flex-end;
   height: 100%;
 }
+.view-group:hover{
+ color: #2c4f90;
+ font-weight: 600;
+ letter-spacing: 4px;
+}
+.view-group p:hover{
+  
+  letter-spacing: 2px;
+ }
 .view-group p{
   font-size: 0.6em;
   width: 100%;
+  letter-spacing: 1px;
 }

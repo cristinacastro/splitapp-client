@@ -26,6 +26,7 @@ class GroupDetails extends Component {
     this.getTotal();
     this.getCosts();
   }
+  
 
   getCosts= async () => {
     try {
@@ -119,6 +120,8 @@ class GroupDetails extends Component {
     }
   };
 
+  
+
   render() {
     return (
       <div className="groups-details-page">
@@ -147,7 +150,7 @@ class GroupDetails extends Component {
                             return (
                               <div className="each-cost">
                                 <div className="each-cost-section">
-                                <p>Date: {eachCost.date.slice(0, 10)}</p>
+                                <p>Date: {eachCost.date && eachCost.date.slice(0, 10)}</p>
                                 <h3>{eachCost.concept}</h3>
 
 
@@ -165,12 +168,12 @@ class GroupDetails extends Component {
                           })}
                 
                 <div className="total-cost-div">
-                  <div>
+                  {/* <div>
                     <span>Total costs:</span>
                   </div>
                   <div className="center-div">
                     <h4>{this.state.sum}€</h4>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 

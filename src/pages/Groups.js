@@ -57,12 +57,12 @@ class Groups extends Component {
          
             <div className="groups-page">
               <div className="groups-header">
-                <img src="./../images/group-big.png"></img>
-                <h3>What are you <br></br>sharing today?</h3>
-                <p>In this section you can add as many groups as you want and start spliting expenses in an easy way.</p>
+                <img src="./../images/idea-icon.png"></img>
+                <h3>What are you sharing <br></br>today?</h3>
+                {/* <p>In this section you can add as many groups as you want and start spliting expenses in an easy way.</p> */}
               </div>
               <div className="group-list-button">
-                <div className="center-div">
+                <div className="center-div mb10">
                 <button onClick={this.createEmptyGroup} className="input-button">CREATE GROUP</button>
                 </div>
                       <div>

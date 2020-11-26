@@ -1,9 +1,14 @@
 .arrengementDetails {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 0.6em;
+  border-top: rgb(223, 223, 223) 1.5px dashed;
+  padding-top: 0.6em;
+  padding-bottom: 0.3em;
+  padding-left: 0.6em;
 }
+  
 .arrengementDetails img {
   width: 20px;
   height: 20px;
@@ -21,10 +26,8 @@
 
 .arrengementContainer {
   flex-direction: column;
-  margin: 2em 1.5em 0em 1.5em;
-  background-color: white;
+  margin: 0em 1.5em 0em 1.5em;
   padding: 1em;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0);
 }
 .arrengementContainer hr {
   width: 20%;
