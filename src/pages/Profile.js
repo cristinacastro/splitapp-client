@@ -24,7 +24,6 @@ class Profile extends Component {
       this.setState({
         userProfile: res.data,
       });
-      console.log(this.state.userProfile, "hhh")
     } catch (error) {
       console.log(error, "GET expenses error");
     }

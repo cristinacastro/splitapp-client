@@ -33,7 +33,6 @@ class Groups extends Component {
 
   createEmptyGroup = async(e) => {
     e.preventDefault();
-    console.log('hola')
     try{
         const res = await axios({
             method: 'POST',
@@ -67,7 +66,6 @@ class Groups extends Component {
                 </div>
                       <div>
                       {this.state.listOfGroups.map(eachGroup => {
-                          console.log(eachGroup, "cada grup")
                           return (
                             <EachGroup key={eachGroup._id} groups={eachGroup}/>
                           )

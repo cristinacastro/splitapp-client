@@ -16,12 +16,10 @@ class Profile extends Component {
 
 
   handleFileUpload = async (e) => {
-    console.log("the file to be uploadesd is: ", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     try {
       const res = await service.handleFileUpload(uploadData);
-      console.log("response is", res);
       this.setState({ image: res.secure_url });
     } catch (error) {
       console.log("Error while uploading the file: ", error);
@@ -37,7 +35,6 @@ class Profile extends Component {
         withCredentials: true,
         data: { id, username, image, phone }
       })
-      console.log(res.data, "resp")
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +43,6 @@ class Profile extends Component {
   handleFormSubmit = async (e) => {
     e.preventDefault();
     const { username, image, phone } = this.state
-    console.log(username, "usern")
     const id = this.props.user._id
     this.editProfile(id, username, image, phone)
 
@@ -58,8 +54,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log(this.props, "props")
-    console.log(this.state, "state")
     return (
       <div className="page profile">
         <div className="cover">

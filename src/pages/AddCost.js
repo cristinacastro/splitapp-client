@@ -25,7 +25,6 @@ export default class AddCost extends Component {
   handleSubmit = async (e) => {
     const { concept, costImport, date, ticketTotal, ticket } = this.state;
     e.preventDefault();
-    console.log("hola");
     if(ticket.items.length > 0){
       try {
         const res = await axios({
@@ -63,7 +62,6 @@ export default class AddCost extends Component {
           costImport: 0,
           date: ""
         });
-        console.log(this.props.location.state.groupsList._id, 'holi')
       this.props.history.goBack()
     } catch (error) {
       console.log(error, "POST expenses error");
@@ -75,13 +73,11 @@ export default class AddCost extends Component {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
   handleFileUpload = async (e) => {
-    console.log("the file to be uploadesd is: ", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     try {
       const res = await service.handleFileUpload(uploadData);
-      console.log("response is", res);
-      this.setState({ image: res.secure_url }); //Fins aqui es igual que pujar la imatge al perfil
+      this.setState({ image: res.secure_url }); 
       const receipt_raw = await axios({
         method: "POST",
         url:
@@ -91,22 +87,20 @@ export default class AddCost extends Component {
           "content-type": "application/json",
         },
         data: { source: res.secure_url },
-      }); // FEM LA PETICIO A MICROSOFT EN LA URL DE CLOUDINARY
-      console.log(receipt_raw, 'receipt_e');
+      });
 
       let finished = false;
       let receipt;
       while (!finished) {
         receipt = await axios({
           method: "GET",
-          url: receipt_raw.headers["operation-location"], // HO POSEM EN CORXETES PERQUE NO ACCEPTA DOT NOTATION
+          url: receipt_raw.headers["operation-location"],
           headers: {
             "ocp-apim-subscription-key": "283baf18bf244fb599712265b21633c6",
             "content-type": "application/json",
           },
         });
         await this.sleep(0.5);
-        console.log(receipt.data.status);
         if (
           receipt.data.status == "running" ||
           receipt.data.status == "notStarted"
@@ -118,7 +112,6 @@ export default class AddCost extends Component {
       }
 
        
-      console.log(receipt.data);
       let obj = {
         merchant:
           receipt.data.analyzeResult.documentResults[0].fields.MerchantName
@@ -224,7 +217,6 @@ export default class AddCost extends Component {
 
             <ul>
               {this.state.ticket.items.map((item, index) => {
-                console.log(item)
                 return (
                   <div>
                     <li key={index}>

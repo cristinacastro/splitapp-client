@@ -8,13 +8,11 @@ class Service {
     });
   }
   handleFileUpload = async (image) => {
-    console.log("file in service: ", image);
 
     try {
       const res = await this.service.post("/upload", image);
       return res.data;
     } catch (error) {
-      console.log(error);
     }
   };
 }

@@ -40,7 +40,6 @@ class GroupDetails extends Component {
       this.setState({
         listOfCosts: res.data,
       });
-      console.log(res.data, "olita");
     } catch (error) {
       console.log(error, "GET expenses error");
     }
@@ -58,7 +57,6 @@ class GroupDetails extends Component {
       this.setState({
         listOfExpenses: res.data,
       });
-      console.log(res, "lisFoExpenses");
     } catch (error) {
       console.log(error, "GET expenses error");
     }
@@ -73,12 +71,10 @@ class GroupDetails extends Component {
           `/expenses/add/${this.state.group._id}`,
         withCredentials: true,
       });
-      console.log(res, "gjirwgj");
 
       this.setState({
         listOfExpenses: res.data,
       });
-      console.log(res, "lisFoExpenses");
     } catch (error) {
       console.log(error, "GET expenses error");
     }
@@ -91,7 +87,6 @@ class GroupDetails extends Component {
     this.setState({
       newArr: this.state.newArr,
     });
-    console.log(this.state.newArr, "imports");
     if (this.state.newArr.length == 0) {
       this.state.sum = 0;
     } else if (this.state.newArr.length == 1) {
@@ -146,7 +141,6 @@ class GroupDetails extends Component {
               </Link>
 
                           {this.state.listOfCosts.map((eachCost) => {
-                            console.log(eachCost, "cada cost");
                             return (
                               <div className="each-cost">
                                 <div className="each-cost-section">
