@@ -12,8 +12,13 @@ class Navbar extends Component {
         {isLoggedin ? (
           <div className="center-div home-loggedin">
             <>
-              <p>{user.username}</p>
-              <button onClick={logout}><img src="./../images/logout-white.png"></img></button>
+            <div>
+              <img src="./../images/splitapp.png"></img>
+            </div>
+            < div className="center-div">
+              <p>Hello, {user.username} | </p>
+              <button onClick={logout}><p>Log Out</p></button>
+            </div>
             </>
           </div>
         ) : (

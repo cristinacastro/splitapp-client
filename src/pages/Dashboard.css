@@ -3,11 +3,11 @@
     height: 100vh;
     background-position-x: center;
     background-position-y: center;
-    padding-top: 3em;
     background-color: rgba(236, 236, 236, 0.24);
 }
 .dashboard h3{
     text-align: center;
+    color:#2c4f90;
 }
 
 .dash-btn{

@@ -1,0 +1,40 @@
+.create-group img{
+    width: 30px;
+}
+button{
+    background-color: transparent;
+    border: none;
+}
+
+.create-group-form{
+    display: flex;
+    flex-direction: column;
+    margin: 5em 2em;
+}
+.create-group-form h5{
+    font-size: 1em;
+    font-weight: 500;
+}
+.create-group-form label{
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.create-group-form input{
+    border:none;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    background-color: transparent;
+    height: 2.5em;
+    margin-bottom: 1em;
+    padding-top: 0em;
+    line-height: 0em;
+}
+.input-button-create-group{
+    background-color: rgb(236, 236, 236) !important;
+    border: none !important;
+    width: 80px !important;
+    letter-spacing: 1px;
+    font-size: 0.6em;
+    margin: 0em 1em 2em 0em !important;
+}

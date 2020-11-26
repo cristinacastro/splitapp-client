@@ -329,6 +329,10 @@ p {
   width: 100%;
   padding-left: 2em
 }
+.align-right{
+  text-align: right;
+  padding-left: 2em
+}
 .w100{
   width: 100%;
 }

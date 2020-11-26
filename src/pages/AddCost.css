@@ -1,0 +1,30 @@
+
+.create-cost-form{
+    display: flex;
+    flex-direction: column;
+    margin: 1em 2em;
+}
+.create-cost-form h5{
+    font-size: 1em;
+    font-weight: 500;
+}
+.create-cost-form p{
+    font-size:0.8em;
+    margin-bottom: 1em;
+    color: rgb(73, 72, 72);
+}
+.create-cost-form label{
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.create-cost-form input{
+    border:none;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    background-color: transparent;
+    height: 2.5em;
+    margin-bottom: 1em;
+    padding-top: 0em;
+    line-height: 0em;
+}

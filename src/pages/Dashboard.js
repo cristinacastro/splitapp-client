@@ -20,7 +20,7 @@ class Dashboard extends Component {
           <h3>Dashboard</h3>
           <div className="center-div dash-btn">
             <div>
-            <img src="./../images/group-big.png"></img>
+            <img src="./../images/idea-icon.png"></img>
             </div>
             <div>
           <h4>Groups</h4>
@@ -30,7 +30,7 @@ class Dashboard extends Component {
           </div>
           <div className="center-div dash-btn">
             <div>
-          <img src="./../images/money-transfer.png"></img>
+          <img src="./../images/money-transfer-icon.png"></img>
           </div>
           <div>
             <h4>Arrangements</h4>
@@ -41,7 +41,7 @@ class Dashboard extends Component {
           </div>
           <div className="center-div dash-btn">
             <div>
-            <img src="./../images/resume.png"></img>
+            <img src="./../images/resume-icon.png"></img>
             </div>
             <div>
           <h4>Profile</h4>

@@ -1,0 +1,33 @@
+.each-cost{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin: 0.3em 1em 0.15em 1em;
+    padding: 0.5em 0em;
+    border-bottom: 1px solid grey;
+}
+.each-cost-phrase{
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+.each-cost-phrase p{
+    margin-right: 0.2em;
+    font-size: 1.6em
+
+}
+.check-div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.check-div p{
+    margin-right: 0.5em;
+    margin-bottom: 0em !important;
+}
+.input-button-datils{
+    background-color: #e7e7e7;
+    letter-spacing: 1px;
+    padding: 0.4em;
+    font-size: 0.7em;
+}
