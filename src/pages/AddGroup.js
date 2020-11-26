@@ -5,6 +5,8 @@ import service from "../api/service";
 import Navbar from "../components/Navbar";
 import { Redirect } from "react-router";
 import "./AddGroup.css";
+import "./Groups.css";
+
 
 
 
@@ -106,48 +108,57 @@ export default class AddGroup extends Component {
 
   render() {
     return (
-      <div className="create-group">
-        <button onClick={this.props.history.goBack}><img src="../../images/bacwk.png"></img></button>
-        <h1>Create your group</h1>
-        <h3>Select the members of your group:</h3>
-        <br></br>
-        <Search filterMembers={this.filterMembers} />
-        {this.state.filterMembers.map((member) => {
-          return (
-            <div>
-              {member.username}
-              <button onClick={this.memberPush} id="show-all">
-                Add member
-              </button>
+      <div className="groups-page">
+         <div className="groups-header">
+            <img src="./../images/group-big.png"></img>
+            {/* <button onClick={this.props.history.goBack}><img src="../../images/bacwk.png"></img></button> */}
+                    <h3>Create your group</h3>
+                    <p>Start organizing your group and split your expenses.</p>
             </div>
-          );
-        })}
+          <div className="create-group-form mt50">
 
-        <br></br>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="username">Group's name:</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            /></div>
-             <div>
-            <label htmlFor="image">Group's image: </label>
-            <input
-              type="file"
-              name="image"
-              value=""
-              onChange={this.handleFileUpload}
-            />
+                  <h5>Select the members of your group:</h5>
+                  <Search filterMembers={this.filterMembers} />
+                  {this.state.filterMembers.map((member) => {
+                    return (
+                      <div>
+                        {member.username}
+                        <button onClick={this.memberPush} id="show-all">
+                          Add member
+                        </button>
+                      </div>
+                    );
+                  })}
+              <br></br>
+              <form onSubmit={this.handleSubmit}>
+                <div className="input-group-create">
+                    <label htmlFor="username">Introduce the name of your group:</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                      />
+                    </div>
+                  <div>
+                  <label htmlFor="image">Group's image: </label>
+                  <input
+                    type="file"
+                    name="image"
+                    value=""
+                    onChange={this.handleFileUpload}
+                    
+                    />
+                </div>
+                <br></br>
+                <div class="center-div">
+                  <input type="submit" value="SAVE GROUP" className="input-button-create-group"/>
+                </div>
+              </form>
           </div>
-          <br></br>
-          <div>
-            <input type="submit" value="Save group"/>
-          </div>
-        </form>
+          <div class="center-div">
         <Navbar/> 
+        </div>
       </div>
     );
   }

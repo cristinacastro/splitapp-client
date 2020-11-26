@@ -5,7 +5,7 @@
 } */
 
 .cover{
-    height: 30vh;
+    height: 20vh;
     width: 100%;
     text-align:center;
     background-size: cover;
@@ -16,15 +16,15 @@
     justify-content: center;
 }
 .cover-edit{
-    height: 30vh;
+    height: 10vh;
     width: 100%;
     text-align:center;
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 .cover-edit button {
     background-color: transparent !important;
@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 .cover-edit img {
-    width: 20px;
+    width: 60px;
 }
 .profile-container-flex{
     height: 50%;
@@ -43,7 +43,7 @@
 }
 .profile-img{
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #59708a;
     width: 8em;
     height: 8em;
    
@@ -69,6 +69,7 @@
 }
 .profile-items img{
     width: 25px;
+
 }
 
 hr{
@@ -81,6 +82,10 @@ hr{
 .fondo{
     background-size: cover;
     background-repeat: no-repeat;
+}
+.profile{
+    background-color: #fbfbfb;
+    height: 100vh;
 }
 .profile-container-flex h3 {
     color: black;
@@ -96,7 +101,7 @@ hr{
 .profile-container-flex label{
     margin-top: 1.2em;
     font-weight: 400;
-    color: rgb(119, 117, 117)
+    color: black
 }
 .profile-container-flex form{
     display: flex;
@@ -111,11 +116,14 @@ hr{
 .edit-div-edit{
     display: flex;
    flex-direction: column;
+   background-color: rgba(233, 233, 233, 0.322);
+   padding: 2em
 }
 .edit-div-edit input{
     margin-top: 1.2em;
     font-weight: 600;
     color: rgb(119, 117, 117);
+    background-color: transparent;
     border: none;
     border-bottom: solid 0.1em rgb(228, 228, 228);
 }
@@ -130,4 +138,9 @@ hr{
     border: none !important;
     margin-top: 2em !important;
     cursor: pointer;
+}
+.edit-profile{
+    background-color: rgb(212, 212, 212) !important;
+    width: 10em;
+    font-size: 0.7em;
 }

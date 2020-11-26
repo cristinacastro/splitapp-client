@@ -5,6 +5,10 @@ import EachExpense from "../components/EachExpense";
 import axios from "axios";
 import { isElementOfType } from "react-dom/test-utils";
 import Navbar from "../components/Navbar";
+import "./GroupDetails.css";
+import "./Groups.css";
+
+
 
 class GroupDetails extends Component {
   state = {
@@ -115,88 +119,88 @@ class GroupDetails extends Component {
     }
   };
 
-/*   applyRegex = async () => {
-   const dateRegex = new RegExp(' /^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$/g');
-    const eachDate = eachCost.date
-    var dates = [
-      "2009-10-09",
-      "2009.10.09",
-      "2009/10/09",
-      "200910-09",
-      "1990/10/09",
-      "2016/0/09",
-    ];
-
-    //Iterate array
-    dates.forEach(function (date) {
-      console.log(date + " matches with regex?");
-      console.log(regex.test(date));
-    });
-  };
- */
   render() {
     return (
-      <div>
-        <img src={this.state.group.image} />
-        <h1>{this.state.group.name}</h1>
-        <h1>{this.state.group.members.length} members</h1>
-        <Link
-          to={{
-            pathname: `/groups/addCost/${this.state.group._id}`,
-            state: { groupsList: this.state.group },
-          }}
-        >
-          Add cost
-        </Link>
-        <button onClick={this.deleteGroup}>Delete group</button>
-        <div>
-          <h1>Costs list</h1>
-          {this.state.listOfCosts.map((eachCost) => {
-            console.log(eachCost, "cada cost");
-            return (
-              <div>
-                <hr></hr>
-
-                <h3>{eachCost.concept}</h3>
-                <h3>{eachCost.costImport}</h3>
-
-                <p>{eachCost.date.slice(0, 10)}</p>
-
-                {this.state.group.members.map((eachMember) => {
-                  if (eachMember._id === eachCost.buyer) {
-                    return <h1>Buyer:{eachMember.username}</h1>;
-                  }
-                })}
-
-                <hr></hr>
-              </div>
-            );
-          })}
-
-          <h1>Total costs:</h1>
-          {this.state.sum}
-
-          <hr></hr>
-          <h1>All Expenses</h1>
-          <div>
-            <button onClick={this.getAllExpenses}>Calcular</button>
+      <div className="groups-details-page">
+         <div className="groups-details-header">
+            {/* <button onClick={this.props.history.goBack}>Go Back</button> */}
+            <img src={this.state.group.image} className="group-image"/>
+            <h3>{this.state.group.name}</h3>
+            <h6> This group has {this.state.group.members.length} members</h6>
+              <button onClick={this.deleteGroup}>Delete group</button>
           </div>
 
-          {this.state.listOfExpenses.map((eachExpense) => {
-            return (
-              <div>
-                <EachExpense
-                  key={eachExpense._id}
-                  theExpense={eachExpense}
-                  theGroup={this.state.group}
-                  refreshFunction={this.getExpenses}
-                />
+          <div className="group-details-body">
+            
+            <div className="group-details-content">
+              <div className="cost-list-section">
+                <h3>Costs list</h3>
+              <Link className="input-button-datils" to={{pathname: `/groups-addCost/${this.state.group._id}`,
+                  state: { groupsList: this.state.group },
+                }}
+              >
+                ADD COST
+              </Link>
+
+                          {this.state.listOfCosts.map((eachCost) => {
+                            console.log(eachCost, "cada cost");
+                            return (
+                              <div className="each-cost">
+                                <div className="each-cost-section">
+                                <p>Date: {eachCost.date.slice(0, 10)}</p>
+                                <h3>{eachCost.concept}</h3>
+
+
+                                </div>
+                                <div className="each-cost-section align-right">
+                                <h2>{eachCost.costImport}€</h2>
+                                {this.state.group.members.map((eachMember) => {
+                                  if (eachMember._id === eachCost.buyer) {
+                                    return <p>Paid by <span>{eachMember.username}</span></p>;
+                                  }
+                                })}
+                                </div>
+                              </div>
+                            );
+                          })}
+                
+                <div className="total-cost-div">
+                  <div>
+                    <span>Total costs:</span>
+                  </div>
+                  <div className="center-div">
+                    <h4>{this.state.sum}€</h4>
+                  </div>
+                </div>
               </div>
-            );
-          })}
-        </div>
-        <button onClick={this.props.history.goBack}>Go Back</button>
-        <Navbar />
+
+
+
+              <div className="cost-list-section">
+                <h3>All Expenses</h3>
+                <div>
+                  <button onClick={this.getAllExpenses} className="input-button-datils">SPLIT EXPENSES</button>
+                </div>
+
+                {this.state.listOfExpenses.map((eachExpense) => {
+                  return (
+                    <div>
+                      <EachExpense
+                        key={eachExpense._id}
+                        theExpense={eachExpense}
+                        theGroup={this.state.group}
+                        refreshFunction={this.getExpenses}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          
+          <div className="center-div">
+          <Navbar />
+          </div>
       </div>
     );
   }

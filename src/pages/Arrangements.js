@@ -5,6 +5,8 @@ import axios from 'axios';
 import auth from "../lib/auth-service";
 import GroupDetails from "./GroupDetails";
 import Navbar from "../components/Navbar"
+import "./Arrangements.css";
+
 
 
 class Arrangements extends Component {
@@ -37,41 +39,54 @@ class Arrangements extends Component {
         
         
         return (
-            <div>
-            <h1>Your debts and incomes</h1>
-
-                 <div>
-                 <h3>Your debts</h3>
+            <div className="groups-page">
+        <div className="groups-header">
+          <img src="./../images/arrengements-icon.png"></img>
+          <h3>Your debts and incomes<br></br>at a glance</h3>
+          <p>Have control over all your movements and know who owes you and who you owe to.</p>
+            </div>
+            <div className="pt20">
+                 <div  className="center-div arrengementContainer">
+                 <h5>That's what you owe</h5>
+                 <hr></hr>
                     {this.state.listOfArrangements.map(eachExpense => {
                     if(eachExpense.payer._id.toString() == this.props.user._id.toString()){
                         console.log("cfsfvvv")
                         return (
-                            <div>
-                            {eachExpense.payer.usermame}
-                            <p>Hola</p>
-                            </div>
+                            <div className = "arrengementDetails">
+                            <img src="./../images/debts.png"></img>
+                            <div className = "arrengementText">
+                            <h6>
+                     {eachExpense.beneficiary.username} owes{" "}
+                     {eachExpense.payer.username}{" "}
+                     <span className="you-owe">{eachExpense.expenseImport.toFixed(2)}</span> euros
+                   </h6>
+                           </div>
+                           
+                           </div>
                         )
                     }
-
-                  
-            
-                    
+              
+                               
                     })}
                 </div> 
             
-                <div>
-                 <h3>Your incomes</h3>
+                <div className="center-div arrengementContainer">
+                <h5>That's what you're owed</h5>
+                <hr></hr>
                     {this.state.listOfArrangements.map(eachExpense => {
                         console.log(eachExpense.beneficiary._id.usermame)
                     if(eachExpense.beneficiary._id.toString() == this.props.user._id.toString()){
                         return (
-                            <div>
-                            
-                            {eachExpense.payer.username}<p>owes</p>
-                            {eachExpense.beneficiary.username}<p></p>
-                            {eachExpense.expenseImport}<p>euros</p>
-                            {/* <Link to = {{pathname:`/groups/${eachExpense.group._id}`, state: {groupsList: eachExpense.group, costs: eachExpense.group.costs}}} > {eachExpense.group.name} </Link> */}
-                            <br></br>
+                            <div className = "arrengementDetails">
+                             <img src="./../images/incomes.png"></img>
+                             <div className = "arrengementText">
+                             <h6>
+                      {eachExpense.payer.username} owes{" "}
+                      {eachExpense.beneficiary.username}{" "}
+                      <span className="you-owed">{eachExpense.expenseImport.toFixed(2)}</span> euros
+                    </h6>
+                            </div>
                             
                             </div>
                         )
@@ -82,7 +97,10 @@ class Arrangements extends Component {
                     
                     })}
                 </div> 
+                </div>
+                <div className="center-div">
                 <Navbar/> 
+                </div>
             </div>
         )
     }

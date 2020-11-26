@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { withAuth } from "../lib/AuthProvider";
+import "./Checkbox.css";
+
 
 class Checkbox extends Component {
     state = {
@@ -7,8 +9,9 @@ class Checkbox extends Component {
     }
     render() {
         return (
-            <div>
-            <input
+            <div className="checkbox-container">
+              {this.props.value}
+            <input className="input-checkbox-size"
               type="checkbox"
               value={this.state.checked}
               onClick={() => {
@@ -19,7 +22,6 @@ class Checkbox extends Component {
                 this.props.calculateTotal(this.props.value, !this.state.checked);
               }}
             />{" "}
-            {this.props.value}
           </div>
         )
     }
