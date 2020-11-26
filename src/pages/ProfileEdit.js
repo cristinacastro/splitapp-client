@@ -45,6 +45,7 @@ class Profile extends Component {
     const { username, image, phone } = this.state
     const id = this.props.user._id
     this.editProfile(id, username, image, phone)
+    this.props.history.push('/profile')
 
   }
 

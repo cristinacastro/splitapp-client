@@ -100,7 +100,7 @@ export default class AddCost extends Component {
             "content-type": "application/json",
           },
         });
-        await this.sleep(0.5);
+        await this.sleep(1000);
         if (
           receipt.data.status == "running" ||
           receipt.data.status == "notStarted"
@@ -179,6 +179,7 @@ export default class AddCost extends Component {
               name="concept"
               value={this.state.concept}
               onChange={this.handleChange}
+              className="create-cost-form-input"
               />
           </div>
 
@@ -189,6 +190,8 @@ export default class AddCost extends Component {
               name="costImport"
               value={this.state.costImport}
               onChange={this.handleChange}
+              className="create-cost-form-input"
+
               />
           </div>
           <div>
@@ -198,11 +201,12 @@ export default class AddCost extends Component {
               name="date"
               value={this.state.date}
               onChange={this.handleChange}
+              className="input-date"
             />
           </div>
 
           <div className="center-div mt10">
-            <input type="submit" value="ADD COST" className="input-button-create-group"/>
+            <input type="submit" value="ADD COST" className="input-button-create-cost"/>
           </div>
           <label for="image"> Image: </label>
           <input
@@ -213,7 +217,7 @@ export default class AddCost extends Component {
             />
           <div>
             <span style={{fontWeigth:'600'}}>{this.state.ticket.merchant}</span>
-            <span> | {this.state.ticket.date}</span>
+            <span> {this.state.ticket.date}</span>
 
             <ul>
               {this.state.ticket.items.map((item, index) => {
@@ -231,7 +235,9 @@ export default class AddCost extends Component {
 
           </div>
         </form>
-        <button onClick={this.props.history.goBack} >GO BACK</button>
+        <div className="center-div">
+        <button onClick={this.props.history.goBack} className="input-button-create-cost" >GO BACK</button>
+        </div>
         </div>
         <div className="center-div">
         <Navbar/> 

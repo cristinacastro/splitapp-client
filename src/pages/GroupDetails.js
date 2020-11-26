@@ -26,9 +26,9 @@ class GroupDetails extends Component {
     this.getTotal();
     this.getCosts();
   }
-  
 
-  getCosts= async () => {
+
+  getCosts = async () => {
     try {
       const res = await axios({
         method: "GET",
@@ -115,89 +115,92 @@ class GroupDetails extends Component {
     }
   };
 
-  
+
 
   render() {
     return (
       <div className="groups-details-page">
-         <div className="groups-details-header">
-            {/* <button onClick={this.props.history.goBack}>Go Back</button> */}
-            <img src={this.state.group.image} className="group-image"/>
-            <h3>{this.state.group.name}</h3>
+        <div className="groups-details-header">
+          {/* <button onClick={this.props.history.goBack}>Go Back</button> */}
+          <img src={this.state.group.image} className="group-image" />
+          <h3>{this.state.group.name}</h3>
+          <div className="delete-icon">
             <h6> This group has {this.state.group.members.length} members</h6>
-              <button onClick={this.deleteGroup}>Delete group</button>
-          </div>
+            <button onClick={this.deleteGroup}><img src="./../images/recycle-bin.png" ></img>
+            </button></div>
+        </div>
 
-          <div className="group-details-body">
-            
-            <div className="group-details-content">
-              <div className="cost-list-section">
-                <h3>Costs list</h3>
-              <Link className="input-button-datils" to={{pathname: `/groups-addCost/${this.state.group._id}`,
-                  state: { groupsList: this.state.group },
-                }}
-              >
-                ADD COST
+        <div className="group-details-body">
+
+          <div className="group-details-content">
+            <div className="cost-list-section">
+              <h3>Costs list</h3>
+              <Link to={{
+                pathname: `/groups-addCost/${this.state.group._id}`,
+                state: { groupsList: this.state.group },
+              }}
+              ><button className="input-button-create-cost">
+                  ADD COST</button>
               </Link>
 
-                          {this.state.listOfCosts.map((eachCost) => {
-                            return (
-                              <div className="each-cost">
-                                <div className="each-cost-section">
-                                <p>Date: {eachCost.date && eachCost.date.slice(0, 10)}</p>
-                                <h3>{eachCost.concept}</h3>
+              {this.state.listOfCosts.map((eachCost) => {
+                return (
+                  <div className="each-cost">
+                    <div className="each-cost-section">
+                      <p>Date: {eachCost.date && eachCost.date.slice(0, 10)}</p>
+                      <h3>{eachCost.concept}</h3>
 
 
-                                </div>
-                                <div className="each-cost-section align-right">
-                                <h2>{eachCost.costImport}€</h2>
-                                {this.state.group.members.map((eachMember) => {
-                                  if (eachMember._id === eachCost.buyer) {
-                                    return <p>Paid by <span>{eachMember.username}</span></p>;
-                                  }
-                                })}
-                                </div>
-                              </div>
-                            );
-                          })}
-                
-                <div className="total-cost-div">
-                  {/* <div>
+                    </div>
+                    <div className="each-cost-section align-right">
+                      <h2>{eachCost.costImport}€</h2>
+                      {this.state.group.members.map((eachMember) => {
+                        if (eachMember._id === eachCost.buyer) {
+                          return <p>Paid by <span>{eachMember.username}</span></p>;
+                        }
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+
+              <div className="total-cost-div">
+                {/* <div>
                     <span>Total costs:</span>
                   </div>
                   <div className="center-div">
                     <h4>{this.state.sum}€</h4>
                   </div> */}
-                </div>
-              </div>
-
-
-
-              <div className="cost-list-section">
-                <h3>All Expenses</h3>
-                <div>
-                  <button onClick={this.getAllExpenses} className="input-button-datils">SPLIT EXPENSES</button>
-                </div>
-
-                {this.state.listOfExpenses.map((eachExpense) => {
-                  return (
-                    <div>
-                      <EachExpense
-                        key={eachExpense._id}
-                        theExpense={eachExpense}
-                        theGroup={this.state.group}
-                        refreshFunction={this.getExpenses}
-                      />
-                    </div>
-                  );
-                })}
               </div>
             </div>
+
+
+
+            <div className="cost-list-section">
+              <h3>All Expenses</h3>
+              <div>
+                <button onClick={this.getAllExpenses} className="input-button-create-cost">SPLIT EXPENSES</button>
+              </div>
+
+              {this.state.listOfExpenses.map((eachExpense) => {
+                return (
+                  <div>
+                    <EachExpense
+                      key={eachExpense._id}
+                      theExpense={eachExpense}
+                      theGroup={this.state.group}
+                      refreshFunction={this.getExpenses}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          
-          <div className="center-div">
+        </div>
+
+        <div className="center-div">
           <Navbar />
-          </div>
+        </div>
       </div>
     );
   }

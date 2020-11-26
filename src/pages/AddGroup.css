@@ -1,10 +1,7 @@
 .create-group img{
     width: 30px;
 }
-button{
-    background-color: transparent;
-    border: none;
-}
+
 
 .create-group-form{
     display: flex;

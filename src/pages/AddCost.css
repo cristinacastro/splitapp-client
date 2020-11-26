@@ -18,8 +18,7 @@
     font-size: 1em;
     font-weight: 500;
 }
-
-.create-cost-form input{
+ .create-cost-form-input{
     border:none;
     border-bottom: 1px solid grey;
     width: 100%;
@@ -30,4 +29,16 @@
     line-height: 0em;
     cursor: pointer;
    
+}
+.input-date{
+    margin-left: 1em;
+}
+.input-button-create-cost{
+    border: none;
+    letter-spacing: 1px;
+    width: 120px;
+    padding: 0.5em 0em;
+    margin-top: 1em;
+    font-size: 0.7em;
+    cursor: pointer;
 }

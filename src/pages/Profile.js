@@ -31,6 +31,9 @@ class Profile extends Component {
   componentDidMount() {
     this.getUserInfo();
   }
+  componentDidUpdate(){
+    this.getUserInfo();
+  }
 
 
 

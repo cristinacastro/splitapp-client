@@ -80,3 +80,15 @@
     font-size: 1.4em;
     font-weight: 500;
 }
+.delete-icon{
+    display: flex;
+}
+.delete-icon button{
+    background-color: transparent;
+    border: none;
+}
+.delete-icon img{
+    height: 20px;
+    width: 20px;
+    margin-left: 0.5em;
+}
