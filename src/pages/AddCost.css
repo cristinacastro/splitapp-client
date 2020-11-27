@@ -42,3 +42,7 @@
     font-size: 0.7em;
     cursor: pointer;
 }
+.total-add-cost{
+    font-size: 1em !important;
+    font-weight: 600;
+}

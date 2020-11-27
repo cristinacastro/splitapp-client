@@ -231,7 +231,7 @@ export default class AddCost extends Component {
                 );
               })}
             </ul>
-            <p>Total: {this.state.ticketTotal.toFixed(2)}</p>
+            <p className="total-add-cost">Total: {this.state.ticketTotal.toFixed(2)}</p>
 
           </div>
         </form>
