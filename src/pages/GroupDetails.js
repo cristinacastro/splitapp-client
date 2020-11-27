@@ -153,7 +153,7 @@ class GroupDetails extends Component {
 
                     </div>
                     <div className="each-cost-section align-right">
-                      <h2>{eachCost.costImport}€</h2>
+                      <h2>{eachCost.costImport.toFixed(2)}€</h2>
                       {this.state.group.members.map((eachMember) => {
                         if (eachMember._id === eachCost.buyer) {
                           return <p>Paid by <span>{eachMember.username}</span></p>;
