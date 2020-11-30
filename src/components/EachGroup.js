@@ -6,7 +6,6 @@ import "./EachGroup.css";
 
 
 const EachGroup = ({ groups }) => {
-    console.log(groups ,"grups")
   return (
     <div className="group-list-item">
     

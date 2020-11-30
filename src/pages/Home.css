@@ -19,6 +19,7 @@
 .home-loggedin p{
     font-size: 0.8em;
     margin-left: 0.5em;
+    color: #2c4f90;
 }
 .home-loggedin button{
     background-color: transparent;
