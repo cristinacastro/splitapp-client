@@ -35,23 +35,19 @@ class Arrangements extends Component {
         this.getArrangements();
     }
     render() {
-        //console.log(this.props.user._id, "dsf")
         
         
         return (
             <div className="groups-page">
-        <div className="groups-header">
+        <div className="groups-header mb10">
           <img src="./../images/arrengements-icon.png"></img>
           <h3>Your debts and incomes<br></br>at a glance</h3>
-          <p>Have control over all your movements and know who owes you and who you owe to.</p>
             </div>
-            <div className="pt20">
+            <div>
                  <div  className="center-div arrengementContainer">
-                 <h5>That's what you owe</h5>
-                 <hr></hr>
+                 <h5  className="mb10">That's what you're owed</h5>
                     {this.state.listOfArrangements.map(eachExpense => {
                     if(eachExpense.payer._id.toString() == this.props.user._id.toString()){
-                        console.log("cfsfvvv")
                         return (
                             <div className = "arrengementDetails">
                             <img src="./../images/debts.png"></img>
@@ -72,10 +68,8 @@ class Arrangements extends Component {
                 </div> 
             
                 <div className="center-div arrengementContainer">
-                <h5>That's what you're owed</h5>
-                <hr></hr>
+                <h5 className="mb10">That's what you owe</h5>
                     {this.state.listOfArrangements.map(eachExpense => {
-                        console.log(eachExpense.beneficiary._id.usermame)
                     if(eachExpense.beneficiary._id.toString() == this.props.user._id.toString()){
                         return (
                             <div className = "arrengementDetails">

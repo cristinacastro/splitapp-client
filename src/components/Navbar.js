@@ -9,16 +9,16 @@ const Navbar = () => {
      <nav className="navbar">
         <ul className="center-div">
           <Link to='/'>
-            <li><img src="./../images/home.jpg"></img>Dashboard</li>
+            <li><img src="./../images/home-blue.png"></img>Dashboard</li>
           </Link>
           <Link to='/groups'>
-            <li><img src="./../images/group.jpg"></img>Groups</li>
+            <li><img src="./../images/group-blue.png"></img>Groups</li>
           </Link>
           <Link to='/arrangements'>
-            <li><img src="./../images/arrangements.jpg"></img>Arrangements</li>
+            <li><img src="./../images/money-blue.png"></img>Arrangements</li>
           </Link>
           <Link to='/profile'>
-            <li><img src="./../images/perfil.jpg"></img>Perfil</li>
+            <li><img src="./../images/user-blue.png"></img>Perfil</li>
           </Link>
         </ul>
       </nav>

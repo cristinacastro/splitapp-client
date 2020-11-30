@@ -140,7 +140,30 @@ hr{
     cursor: pointer;
 }
 .edit-profile{
-    background-color: rgb(212, 212, 212) !important;
+    background-color: rgb(228, 227, 227) !important;
     width: 10em;
     font-size: 0.7em;
+}
+.edit-profile-form{
+    display: flex;
+    flex-direction: column;
+}
+.edit-profile-form input{
+    margin-top: 1.2em;
+    font-weight: 500;
+    color: rgb(119, 117, 117);
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 0.1em rgb(219, 219, 219);
+} 
+.edit-profile-form h4{
+text-align: left;
+width: 100%;
+margin-left: 0.8em
+}
+
+.edit-profile-form label{
+    margin-top: 1.2em;
+font-weight: 400;
+color: rgb(119, 117, 117);
 }

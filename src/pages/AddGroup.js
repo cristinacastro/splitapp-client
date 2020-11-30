@@ -34,19 +34,16 @@ export default class AddGroup extends Component {
       this.setState({
         members: res.data,
       });
-      console.log(this.state.members, 'members all');
     } catch (error) {
       console.log(error, "GET expenses error");
     }
   };
 
   handleFileUpload = async (e) => {
-    console.log("the file to be uploadesd is: ", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     try {
       const res = await service.handleFileUpload(uploadData);
-      console.log("response is", res);
       this.setState({ image: res.secure_url });
     } catch (error) {
       console.log("Error while uploading the file: ", error);
@@ -63,7 +60,6 @@ export default class AddGroup extends Component {
     } else {
       this.setState({ filterMembers: [] });
     }
-    console.log(this.state.filterMembers, "filter")
   };
 
   memberPush = () => {
@@ -72,7 +68,6 @@ export default class AddGroup extends Component {
       theMembers: this.state.theMembers,
       filterMembers: [],
     });
-    console.log(this.state.theMembers, "jgrni9gjr");
   };
 
   handleSubmit = async (e) => {
@@ -80,7 +75,6 @@ export default class AddGroup extends Component {
     const { params } = this.props.match;
 
     e.preventDefault();
-    console.log("hola");
     try {
       const res = await axios({
         method: "PATCH",
@@ -88,8 +82,6 @@ export default class AddGroup extends Component {
         withCredentials: true,
         data: { name: name, members: theMembers, image: image },
       });
-      console.log(res);
-      //console.log(this.props.location.state.groupsList);
       this.setState({
         name: this.state.name,
         image: this.state.image,
@@ -123,8 +115,8 @@ export default class AddGroup extends Component {
                     return (
                       <div>
                         {member.username}
-                        <button onClick={this.memberPush} id="show-all">
-                          Add member
+                        <button onClick={this.memberPush} id="show-all" className="add-member">
+                          ADD
                         </button>
                       </div>
                     );

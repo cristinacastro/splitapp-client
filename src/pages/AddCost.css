@@ -9,16 +9,16 @@
     font-weight: 500;
 }
 .create-cost-form p{
-    font-size:0.8em;
-    margin-bottom: 1em;
+    font-size:0.6em;
+    margin: 2em 0em;
     color: rgb(73, 72, 72);
+   
 }
 .create-cost-form label{
     font-size: 1em;
     font-weight: 500;
 }
-
-.create-cost-form input{
+ .create-cost-form-input{
     border:none;
     border-bottom: 1px solid grey;
     width: 100%;
@@ -27,4 +27,22 @@
     margin-bottom: 1em;
     padding-top: 0em;
     line-height: 0em;
+    cursor: pointer;
+   
+}
+.input-date{
+    margin-left: 1em;
+}
+.input-button-create-cost{
+    border: none;
+    letter-spacing: 1px;
+    width: 120px;
+    padding: 0.5em 0em;
+    margin-top: 1em;
+    font-size: 0.7em;
+    cursor: pointer;
+}
+.total-add-cost{
+    font-size: 1em !important;
+    font-weight: 600;
 }

@@ -76,7 +76,6 @@ class AuthProvider extends Component {
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ response }) => {
         this.setState({ message: {status: response.status, statusText: response.statusText, errorMessage: response.data.errorMessage} })
-        console.log(this.state.message);
       }
       );
   };
@@ -89,7 +88,6 @@ class AuthProvider extends Component {
       .then((user) => this.setState({ isLoggedin: true, user }))
       .catch(({ response }) => {
         this.setState({ message: {status: response.status, statusText: response.statusText, errorMessage: response.data.errorMessage} })
-        console.log(this.state.message);
       })
   };
 
