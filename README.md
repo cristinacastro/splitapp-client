@@ -1,6 +1,6 @@
-# Splitapp
+<img src="./public/images/splitapp.png" style="zoom: 30%;"/>
 
-
+<img src="./public/images/project3-readme-image.png" />
 
 ## Description
 
@@ -157,28 +157,35 @@ Expense model
 
 ## API Endpoints (backend routes)
 
-| HTTP Method | URL                        | Request Body                                                 | Success status | Error Status | Description                                                  |
-| ----------- | -------------------------- | ------------------------------------------------------------ | -------------- | ------------ | ------------------------------------------------------------ |
-| POST        | `/auth/signup`             | {username, email, password}                                  | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`              | {email, password}                                            | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
-| POST        | `/auth/logout`             | (empty)                                                      | 204            | 400          | Logs out the user                                            |
-| GET         | `/profile/:id`             | Saved session                                                | 200            | 404          | Check if user is logged in and return profile page           |
-| PUT         | `/profile/edit/:id`        | {username, email, image, phone}                              | 200            | 400          | Update user profile                                          |
-| POST        | `group/add`                | {name, members, image, users id array}                       | 200            | 400          | Create a group to share expenses with                        |
-| PUT         | `group/edit/:id`           | {name, members, image, users id array}                       | 200            | 400          | Edit an existing group                                       |
-| DELETE      | `/group/delete/:id`        | {id}                                                         | 200            | 400          | Delete an existing group                                     |
-| GET         | `/group`                   | {}                                                           |                | 400          | Show all the existing groups                                 |
-| GET         | `/group/group-details/:id` | {id}                                                         |                | 400          | View group details page                                      |
-| POST        | `/cost/add`                | {concept, description, import, image, user id (buyer), group id, array users id} | 200            | 400          | Introduce a cost                                             |
-| DELETE      | `/cost/delete/:id`         | {id}                                                         | 200            | 400          | Delete an existing cost                                      |
-| POST        | `/expense/create`          | {import, payed , cost id, user id, }                         | 200            | 400          | Set the expense for each group member                        |
-| DELETE      | `/expense/delete/:id`      | {id}                                                         | 200            | 400          | Delete an existing expense                                   |
-| GET         | /arrangements              |                                                              |                | 400          | Check all your debts and all your pending incomes            |
+| HTTP Method | URL                         | Request Body                                       | Success status | Error Status | Description                                                  |
+| ----------- | --------------------------- | -------------------------------------------------- | -------------- | ------------ | ------------------------------------------------------------ |
+| POST        | `/auth/signup`              | {username, email, password}                        | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
+| POST        | `/auth/login`               | {email, password}                                  | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session |
+| POST        | `/auth/logout`              |                                                    | 204            | 400          | Logs out the user                                            |
+| GET         | `/profile`                  | Saved session                                      | 200            | 404          | Check if user is logged in and return profile page           |
+| PATCH       | `/profile/edit/:id`         | {username, email, image, phone}                    | 200            | 400          | Update user profile                                          |
+| GET         | `/profile/allusers`         |                                                    | 200            | 400          | Get all the users                                            |
+| GET         | `/profile/allusers/search`  |                                                    | 200            | 400          | Get users by searching for their names                       |
+| GET         | `/groups`                    |                                                    | 200            | 400          | Find all the groups in which a user is member                |
+| POST        | `/groups/add`               | {name, members, image, users id array}             | 200            | 400          | Create a group to share expenses with                        |
+| PATCH       | `/groups/edit/:id`          | {name, members, image, users id array}             | 200            | 400          | Edit an existing group                                       |
+| DELETE      | `/groups/delete/:id`        | {id}                                               | 200            | 400          | Delete an existing group                                     |
+| GET         | `/groups/group-details/:id` | {id}                                               | 200            | 400          | View group details page                                      |
+| POST        | `/costs/add/:id`            | {concept, costImport, ticket, buyer, group, date}  | 200            | 400          | Introduce a cost                                             |
+| GET         | `/all-costs/:id`            |                                                    | 200            | 400          | Get all the costs within a group                             |
+| DELETE      | `/costs/delete/:id`         | {id}                                               | 200            | 400          | Delete an existing cost                                      |
+| POST        | `/expense/add/:id`          | {expenseImport, payed , group, payer, beneficiary} | 200            | 400          | Set the expense for each group member                        |
+| PATCH       | `/expense/edit/:id`         | {expenseImport, payed , group, payer, beneficiary} | 200            | 400          | Edit an existing expense                                     |
+| GET         | `/expense/all/:id`          | {id}                                               | 200            | 400          | Get all the expenses                                         |
+| DELETE      | `/expense/delete/:id`       | {id}                                               | 200            | 400          | Delete an existing expense                                   |
+| GET         | /arrangements               |                                                    | 200            | 400          | Check all your debts and all your pending incomes            |
+
+
 
 
 ## Wireframes
 
-<img src="wireframes-project3.png"/>
+<img src="./public/images/wireframes-project3.png"/>
 
 
 ## Links
